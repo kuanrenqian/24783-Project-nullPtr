@@ -1,0 +1,1009 @@
+
+              Welcome to ANSYS Fluent 2020 R2
+
+              Copyright 1987-2020 ANSYS, Inc. All Rights Reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: May 29 2020 07:26:53 EDT  Build Id: 10176  
+ 
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+Host spawning Node 0 on machine "KuanrenQian-PC" (win64).
+
+-------------------------------------------------------------------------------
+ID    Hostname        Core  O.S.         PID    Vendor      
+-------------------------------------------------------------------------------
+n0    KuanrenQian-PC  1/12  Windows-x64  15572  AMD Ryzen 9 
+host  KuanrenQian-PC        Windows-x64  21844  AMD Ryzen 9 
+
+MPI Option Selected: intel
+-------------------------------------------------------------------------------
+
+
+
+Cleanup script file is C:\Users\KuanrenQian\24783\nullPointer\Beta_version\build\\cleanup-fluent-KuanrenQian-PC-12808.bat
+
+Reading journal file ./output/simulation_input_journal0.jou...
+
+> sync-chdir ./output
+
+> /file/import/nastran/bulkdata m_0.bdf
+
+Opening library "c:\\PROGRA~1\\ANSYSI~1\\v202\\fluent\\fluent20.2.0\\vki\\win64\\devtools4.4.6.dll"... done.
+
+Read     4741 nodes
+    7276 mixed cells, zone  1
+   11632 2D interior faces, zone  2.
+      30 2D wall faces, zone  3.
+     183 2D wall faces, zone  4.
+      80 2D wall faces, zone  5.
+      91 2D wall faces, zone  6.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	wall-14
+	wall-15
+	wall-13
+	wall-12
+	default_interior-11
+	solid-11
+     parallel,
+Done.
+
+> /define/models/axisymmetric y
+
+> /define/models/steady Steady solution model is already enabled.
+y
+invalid command [y]
+
+> /define/models/solver/pressure-based y
+No change.
+> /define/models/viscous/laminar y
+
+> /define/materials/change-create air air_test air_test is a fluid
+n n n n n n n n
+
+> /define/boundary-conditions/zone-type solid-11 fluid
+
+> /define/boundary-conditions fluid (solid-11)
+solid-11 y air_test n n n n n n
+
+> /define/boundary-condition/modify-zone/zone-type wall-15 axis
+
+> /define/boundary-condition/modify-zone/zone-type wall-13 pressure-inlet
+
+> /define/boundary-condition/modify-zone/zone-type wall-12 pressure-outlet
+
+> /define/boundary-conditions/pressure-inlet (wall-13)
+wall-13 y n 1000 n 0 n y
+
+> /solve/set/p-v-coupling 20
+
+> /solve/set/discretization-scheme pressure 10
+
+> /solve/set/discretization-scheme mom 1
+
+> /solve/set/gradient-scheme  Options:
+ Green-Gauss Cell-Based 
+ Green-Gauss Node-Based 
+ Least-Squares Cell-Based Default 
+n y
+
+ Least-Squares Cell-Based will be used
+> /solve/initialize/hyb-initialization 
+Initialize using the hybrid initialization method.
+
+Checking case topology... 
+-This case has both inlets & outlets 
+-Pressure information is available at the boundaries
+
+	iter		scalar-0		scalar-1
+
+	1		1.000000e+00	1.000000e+00
+	2		1.407650e-05	2.651148e-05
+	3		1.299909e-06	2.919097e-06
+	4		2.738942e-07	4.211654e-07
+	5		3.533101e-08	7.004860e-08
+	6		7.178191e-09	1.048398e-08
+	7		1.094790e-09	1.982184e-09
+	8		2.335416e-10	3.161881e-10
+	9		3.719003e-11	6.279983e-11
+	10		8.008859e-12	1.026084e-11
+
+Hybrid initialization is done.
+y
+invalid command [y]
+
+> /solve/iterate 2000
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+     1  1.0000e+00  1.4837e-02  1.0781e-02  0:00:00 1999
+     2  8.4721e-01  1.0472e-02  5.4055e-03  0:00:00 1998
+
+ Reversed flow on 1 face (0.8% area) of pressure-inlet 4.
+     3  6.5905e-01  8.0653e-03  3.3434e-03  0:00:00 1997
+
+ Reversed flow on 3 faces (2.2% area) of pressure-inlet 4.
+     4  6.4132e-01  7.1079e-03  2.6101e-03  0:00:00 1996
+
+ Reversed flow on 3 faces (2.3% area) of pressure-inlet 4.
+     5  6.1522e-01  6.8650e-03  2.3354e-03  0:00:00 1995
+
+ Reversed flow on 3 faces (2.3% area) of pressure-inlet 4.
+     6  6.2115e-01  6.8175e-03  2.1157e-03  0:00:00 1994
+
+ Reversed flow on 4 faces (3.0% area) of pressure-inlet 4.
+     7  5.9700e-01  6.8382e-03  2.0892e-03  0:00:00 1993
+
+ Reversed flow on 4 faces (3.0% area) of pressure-inlet 4.
+     8  5.0220e-01  6.8824e-03  2.1115e-03  0:00:00 1992
+
+ Reversed flow on 5 faces (3.7% area) of pressure-inlet 4.
+     9  4.6762e-01  6.8378e-03  2.0464e-03  0:00:00 1991
+
+ Reversed flow on 8 faces (5.6% area) of pressure-inlet 4.
+    10  4.6225e-01  6.8292e-03  2.0124e-03  0:00:00 1990
+
+ Reversed flow on 6 faces (4.0% area) of pressure-inlet 4.
+    11  4.2049e-01  6.8539e-03  1.9706e-03  0:00:00 1989
+
+ Reversed flow on 5 faces (3.6% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    12  3.6593e-01  6.8792e-03  1.9312e-03  0:00:00 1988
+
+ Reversed flow on 4 faces (2.8% area) of pressure-inlet 4.
+    13  3.4323e-01  6.9250e-03  1.9059e-03  0:00:00 1987
+
+ Reversed flow on 6 faces (4.3% area) of pressure-inlet 4.
+    14  3.1883e-01  7.0074e-03  1.8943e-03  0:00:00 1986
+
+ Reversed flow on 4 faces (2.9% area) of pressure-inlet 4.
+    15  2.9743e-01  7.0701e-03  1.9089e-03  0:00:00 1985
+
+ Reversed flow on 6 faces (3.5% area) of pressure-inlet 4.
+    16  2.9912e-01  7.1286e-03  1.9115e-03  0:00:00 1984
+
+ Reversed flow on 5 faces (3.5% area) of pressure-inlet 4.
+    17  2.7374e-01  7.2006e-03  1.9526e-03  0:00:00 1983
+
+ Reversed flow on 1 face (0.6% area) of pressure-inlet 4.
+    18  2.6356e-01  7.2479e-03  1.9559e-03  0:00:00 1982
+
+ Reversed flow on 3 faces (1.4% area) of pressure-inlet 4.
+    19  2.5686e-01  7.3216e-03  2.0004e-03  0:33:01 1981
+
+ Reversed flow on 3 faces (2.1% area) of pressure-inlet 4.
+    20  2.5928e-01  7.4211e-03  2.0791e-03  0:26:24 1980
+
+ Reversed flow on 13 faces (2.4% area) of pressure-inlet 4.
+    21  2.5155e-01  7.4690e-03  2.1398e-03  0:21:07 1979
+
+ Reversed flow on 4 faces (2.7% area) of pressure-inlet 4.
+    22  2.5720e-01  7.5686e-03  2.2010e-03  0:16:53 1978
+
+ Reversed flow on 20 faces (2.9% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    23  2.4284e-01  7.5906e-03  2.2261e-03  0:13:30 1977
+
+ Reversed flow on 23 faces (2.9% area) of pressure-inlet 4.
+    24  2.2274e-01  7.5681e-03  2.2439e-03  0:10:47 1976
+
+ Reversed flow on 28 faces (4.0% area) of pressure-inlet 4.
+    25  2.2138e-01  7.5789e-03  2.2284e-03  0:08:38 1975
+
+ Reversed flow on 28 faces (4.1% area) of pressure-inlet 4.
+    26  2.0712e-01  7.5788e-03  2.2057e-03  0:06:54 1974
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 29 faces (4.3% area) of pressure-inlet 4.
+    27  1.9598e-01  7.4847e-03  2.1684e-03  0:05:31 1973
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 28 faces (4.1% area) of pressure-inlet 4.
+    28  1.8470e-01  7.4438e-03  2.1688e-03  0:04:25 1972
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (5.4% area) of pressure-inlet 4.
+    29  1.7446e-01  7.3226e-03  2.0906e-03  0:03:32 1971
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (5.5% area) of pressure-inlet 4.
+    30  1.6224e-01  7.2356e-03  2.0384e-03  0:02:49 1970
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 34 faces (7.2% area) of pressure-inlet 4.
+    31  1.5809e-01  7.1407e-03  1.9700e-03  0:02:15 1969
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 30 faces (4.8% area) of pressure-inlet 4.
+    32  1.5227e-01  7.1057e-03  1.9260e-03  0:01:48 1968
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (5.5% area) of pressure-inlet 4.
+    33  1.4939e-01  7.1058e-03  1.8754e-03  0:01:27 1967
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (5.5% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    34  1.4520e-01  7.1302e-03  1.8383e-03  0:01:09 1966
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 28 faces (3.9% area) of pressure-inlet 4.
+    35  1.3815e-01  7.1805e-03  1.7855e-03  0:00:55 1965
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 28 faces (4.2% area) of pressure-inlet 4.
+    36  1.2859e-01  7.2809e-03  1.7484e-03  0:00:44 1964
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 30 faces (5.3% area) of pressure-inlet 4.
+    37  1.1556e-01  7.3520e-03  1.6876e-03  0:00:35 1963
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 29 faces (4.9% area) of pressure-inlet 4.
+    38  1.1894e-01  7.4195e-03  1.6256e-03  0:00:28 1962
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (6.2% area) of pressure-inlet 4.
+    39  1.2065e-01  7.5636e-03  1.5630e-03  0:00:23 1961
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (7.2% area) of pressure-inlet 4.
+    40  1.1453e-01  7.6674e-03  1.5243e-03  0:00:18 1960
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (8.3% area) of pressure-inlet 4.
+    41  1.0611e-01  7.7548e-03  1.4776e-03  0:00:14 1959
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 36 faces (10.8% area) of pressure-inlet 4.
+    42  9.7847e-02  7.8629e-03  1.4701e-03  0:00:12 1958
+
+ Reversed flow on 6 faces (6.1% area) of pressure-outlet 3.
+
+ Reversed flow on 39 faces (12.9% area) of pressure-inlet 4.
+    43  9.0796e-02  7.9473e-03  1.4726e-03  0:00:09 1957
+
+ Reversed flow on 6 faces (6.1% area) of pressure-outlet 3.
+
+ Reversed flow on 39 faces (13.0% area) of pressure-inlet 4.
+    44  8.5605e-02  7.9547e-03  1.4905e-03  0:00:07 1956
+
+ Reversed flow on 4 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 38 faces (12.3% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    45  8.1354e-02  7.9621e-03  1.4984e-03  0:00:06 1955
+
+ Reversed flow on 3 faces (3.8% area) of pressure-outlet 3.
+
+ Reversed flow on 42 faces (14.5% area) of pressure-inlet 4.
+    46  7.9899e-02  7.9339e-03  1.5420e-03  0:00:05 1954
+
+ Reversed flow on 2 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 42 faces (14.5% area) of pressure-inlet 4.
+    47  7.3524e-02  7.8307e-03  1.5843e-03  0:00:04 1953
+
+ Reversed flow on 44 faces (15.4% area) of pressure-inlet 4.
+    48  6.8282e-02  7.7246e-03  1.6481e-03  0:00:03 1952
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 45 faces (16.4% area) of pressure-inlet 4.
+    49  6.6875e-02  7.5886e-03  1.7141e-03  0:00:02 1951
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 44 faces (15.4% area) of pressure-inlet 4.
+    50  6.7532e-02  7.4807e-03  1.7574e-03  0:00:02 1950
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 42 faces (14.3% area) of pressure-inlet 4.
+    51  7.5558e-02  7.4874e-03  1.7938e-03  0:00:02 1949
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 42 faces (14.1% area) of pressure-inlet 4.
+    52  7.5511e-02  7.5046e-03  1.8286e-03  0:00:01 1948
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 41 faces (13.2% area) of pressure-inlet 4.
+    53  7.1075e-02  7.5249e-03  1.8750e-03  0:00:01 1947
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 36 faces (10.1% area) of pressure-inlet 4.
+    54  7.1979e-02  7.6100e-03  1.9012e-03  0:00:01 1946
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 34 faces (8.7% area) of pressure-inlet 4.
+    55  7.3462e-02  7.6834e-03  1.8969e-03  0:00:01 1945
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (8.7% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    56  7.2307e-02  7.7070e-03  1.9023e-03  0:00:01 1944
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 34 faces (9.1% area) of pressure-inlet 4.
+    57  6.7464e-02  7.8015e-03  1.9022e-03  0:00:00 1943
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (7.6% area) of pressure-inlet 4.
+    58  6.3869e-02  7.8320e-03  1.8778e-03  0:00:00 1942
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (9.1% area) of pressure-inlet 4.
+    59  6.1571e-02  7.8949e-03  1.9034e-03  0:00:00 1941
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (9.1% area) of pressure-inlet 4.
+    60  6.1402e-02  7.9854e-03  1.9371e-03  0:00:00 1940
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (8.4% area) of pressure-inlet 4.
+    61  6.0328e-02  8.1561e-03  1.9925e-03  0:00:00 1939
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (8.4% area) of pressure-inlet 4.
+    62  6.0512e-02  8.3839e-03  2.0971e-03  0:00:00 1938
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (7.7% area) of pressure-inlet 4.
+    63  6.5058e-02  8.6585e-03  2.2072e-03  0:06:28 1937
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (7.9% area) of pressure-inlet 4.
+    64  6.9248e-02  8.8806e-03  2.3713e-03  0:05:10 1936
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (8.5% area) of pressure-inlet 4.
+    65  6.9347e-02  9.0847e-03  2.5526e-03  0:04:08 1935
+
+ Reversed flow on 6 faces (6.1% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (10.1% area) of pressure-inlet 4.
+    66  6.9997e-02  9.2430e-03  2.6994e-03  0:03:18 1934
+
+ Reversed flow on 5 faces (5.8% area) of pressure-outlet 3.
+
+ Reversed flow on 34 faces (11.6% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    67  6.5981e-02  9.2327e-03  2.9015e-03  0:02:38 1933
+
+ Reversed flow on 33 faces (11.8% area) of pressure-inlet 4.
+    68  6.0596e-02  9.1123e-03  3.0431e-03  0:02:07 1932
+
+ Reversed flow on 32 faces (12.0% area) of pressure-inlet 4.
+    69  5.7929e-02  8.8178e-03  3.2548e-03  0:01:41 1931
+
+ Reversed flow on 31 faces (11.5% area) of pressure-inlet 4.
+    70  5.5978e-02  8.5234e-03  3.3613e-03  0:01:21 1930
+
+ Reversed flow on 31 faces (11.1% area) of pressure-inlet 4.
+    71  5.4469e-02  8.2515e-03  3.4044e-03  0:01:05 1929
+
+ Reversed flow on 30 faces (10.9% area) of pressure-inlet 4.
+    72  5.1971e-02  7.9616e-03  3.3171e-03  0:00:52 1928
+
+ Reversed flow on 36 faces (11.7% area) of pressure-inlet 4.
+    73  4.8789e-02  7.7144e-03  3.2372e-03  0:00:41 1927
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 35 faces (11.3% area) of pressure-inlet 4.
+    74  4.8315e-02  7.5398e-03  3.1789e-03  0:00:33 1926
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (9.7% area) of pressure-inlet 4.
+    75  4.8955e-02  7.3886e-03  3.0965e-03  0:00:26 1925
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (9.7% area) of pressure-inlet 4.
+    76  4.9812e-02  7.3179e-03  2.9506e-03  0:00:21 1924
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 34 faces (9.1% area) of pressure-inlet 4.
+    77  5.3299e-02  7.3343e-03  2.8401e-03  0:00:17 1923
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 41 faces (9.7% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    78  4.3966e-02  7.4412e-03  2.6710e-03  0:00:14 1922
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 41 faces (9.7% area) of pressure-inlet 4.
+    79  4.0435e-02  7.5958e-03  2.5998e-03  0:00:11 1921
+
+ Reversed flow on 40 faces (9.1% area) of pressure-inlet 4.
+    80  4.0853e-02  7.7017e-03  2.4798e-03  0:00:09 1920
+
+ Reversed flow on 38 faces (8.0% area) of pressure-inlet 4.
+    81  4.0395e-02  7.8122e-03  2.3955e-03  0:00:07 1919
+
+ Reversed flow on 37 faces (7.5% area) of pressure-inlet 4.
+    82  3.9347e-02  7.8514e-03  2.3047e-03  0:00:06 1918
+
+ Reversed flow on 36 faces (7.0% area) of pressure-inlet 4.
+    83  3.8090e-02  7.8726e-03  2.2005e-03  0:00:04 1917
+
+ Reversed flow on 35 faces (6.5% area) of pressure-inlet 4.
+    84  3.7435e-02  7.8793e-03  2.1211e-03  0:00:04 1916
+
+ Reversed flow on 35 faces (6.5% area) of pressure-inlet 4.
+    85  3.6845e-02  7.9300e-03  2.1354e-03  0:00:03 1915
+
+ Reversed flow on 34 faces (6.0% area) of pressure-inlet 4.
+    86  3.6766e-02  7.8678e-03  2.1587e-03  0:00:02 1914
+
+ Reversed flow on 34 faces (6.0% area) of pressure-inlet 4.
+    87  3.8197e-02  7.8978e-03  2.1478e-03  0:00:02 1913
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (5.5% area) of pressure-inlet 4.
+    88  3.7016e-02  7.9121e-03  2.1582e-03  0:00:01 1912
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (5.5% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+    89  3.6048e-02  8.0304e-03  2.2126e-03  0:00:01 1911
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 33 faces (5.5% area) of pressure-inlet 4.
+    90  3.7074e-02  8.1785e-03  2.2932e-03  0:00:01 1910
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (5.0% area) of pressure-inlet 4.
+    91  4.1853e-02  8.4240e-03  2.3733e-03  0:00:01 1909
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (5.0% area) of pressure-inlet 4.
+    92  4.4247e-02  8.7129e-03  2.5253e-03  0:00:01 1908
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 32 faces (5.0% area) of pressure-inlet 4.
+    93  4.6091e-02  9.0634e-03  2.6934e-03  0:00:00 1907
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (4.6% area) of pressure-inlet 4.
+    94  4.7682e-02  9.4248e-03  2.9801e-03  0:00:00 1906
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (4.6% area) of pressure-inlet 4.
+    95  5.0958e-02  9.7650e-03  3.2689e-03  0:00:00 1905
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 31 faces (4.6% area) of pressure-inlet 4.
+    96  5.5405e-02  1.0037e-02  3.4981e-03  0:00:00 1904
+
+ Reversed flow on 3 faces (2.9% area) of pressure-outlet 3.
+
+ Reversed flow on 30 faces (4.2% area) of pressure-inlet 4.
+    97  5.5976e-02  1.0304e-02  3.8885e-03  0:00:00 1903
+
+ Reversed flow on 1 face (1.0% area) of pressure-outlet 3.
+
+ Reversed flow on 30 faces (4.2% area) of pressure-inlet 4.
+    98  5.5346e-02  1.0611e-02  4.2949e-03  0:00:00 1902
+
+ Reversed flow on 29 faces (3.7% area) of pressure-inlet 4.
+    99  5.3855e-02  1.0637e-02  4.7788e-03  0:00:00 1901
+
+ Reversed flow on 29 faces (3.7% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   100  5.2543e-02  1.0501e-02  5.1573e-03  0:00:00 1900
+
+ Reversed flow on 28 faces (3.4% area) of pressure-inlet 4.
+   101  5.1782e-02  1.0347e-02  5.3252e-03  0:00:00 1899
+
+ Reversed flow on 28 faces (3.4% area) of pressure-inlet 4.
+   102  4.9462e-02  1.0106e-02  5.4776e-03  0:00:00 1898
+
+ Reversed flow on 28 faces (3.4% area) of pressure-inlet 4.
+   103  4.6237e-02  9.9676e-03  5.5764e-03  0:00:00 1897
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 27 faces (3.0% area) of pressure-inlet 4.
+   104  4.5811e-02  9.7887e-03  5.4057e-03  0:00:00 1896
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 26 faces (2.6% area) of pressure-inlet 4.
+   105  4.5032e-02  9.7045e-03  5.4701e-03  0:00:00 1895
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 26 faces (2.6% area) of pressure-inlet 4.
+   106  4.3494e-02  9.2996e-03  5.2262e-03  0:06:19 1894
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 25 faces (2.2% area) of pressure-inlet 4.
+   107  4.0657e-02  8.9855e-03  4.9954e-03  0:05:03 1893
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 25 faces (2.2% area) of pressure-inlet 4.
+   108  3.8486e-02  8.6910e-03  4.8393e-03  0:04:02 1892
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 24 faces (1.9% area) of pressure-inlet 4.
+   109  3.5446e-02  8.3276e-03  4.6382e-03  0:03:14 1891
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 25 faces (2.7% area) of pressure-inlet 4.
+   110  3.4047e-02  8.1544e-03  4.4766e-03  0:02:35 1890
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 25 faces (3.2% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   111  3.2421e-02  7.9384e-03  4.1714e-03  0:02:04 1889
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 25 faces (3.2% area) of pressure-inlet 4.
+   112  2.9317e-02  7.7977e-03  3.7995e-03  0:01:39 1888
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 24 faces (2.4% area) of pressure-inlet 4.
+   113  2.6499e-02  7.7745e-03  3.5936e-03  0:01:19 1887
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.3% area) of pressure-inlet 4.
+   114  2.3456e-02  7.8515e-03  3.3610e-03  0:01:03 1886
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.3% area) of pressure-inlet 4.
+   115  2.1604e-02  7.9336e-03  3.1914e-03  0:00:51 1885
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.3% area) of pressure-inlet 4.
+   116  2.0200e-02  7.9969e-03  3.0440e-03  0:00:40 1884
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.3% area) of pressure-inlet 4.
+   117  1.8608e-02  8.0922e-03  2.9270e-03  0:00:32 1883
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.3% area) of pressure-inlet 4.
+   118  1.7820e-02  8.1604e-03  2.7835e-03  0:00:26 1882
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.4% area) of pressure-inlet 4.
+   119  1.7235e-02  8.1929e-03  2.6896e-03  0:00:21 1881
+
+ Reversed flow on 3 faces (3.2% area) of pressure-outlet 3.
+
+ Reversed flow on 22 faces (1.4% area) of pressure-inlet 4.
+   120  1.7141e-02  8.1356e-03  2.6011e-03  0:00:17 1880
+
+ Reversed flow on 1 face (1.1% area) of pressure-outlet 3.
+
+ Reversed flow on 21 faces (1.1% area) of pressure-inlet 4.
+   121  1.6829e-02  7.9980e-03  2.6574e-03  0:00:13 1879
+
+ Reversed flow on 22 faces (1.5% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   122  1.5631e-02  7.8349e-03  2.7284e-03  0:00:11 1878
+
+ Reversed flow on 21 faces (1.1% area) of pressure-inlet 4.
+   123  1.4397e-02  7.6639e-03  2.8073e-03  0:00:08 1877
+
+ Reversed flow on 21 faces (1.1% area) of pressure-inlet 4.
+   124  1.3422e-02  7.5360e-03  2.8454e-03  0:00:07 1876
+
+ Reversed flow on 23 faces (2.2% area) of pressure-inlet 4.
+   125  1.2881e-02  7.4254e-03  2.7838e-03  0:00:05 1875
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 20 faces (1.0% area) of pressure-inlet 4.
+   126  1.2790e-02  7.4005e-03  2.7143e-03  0:00:04 1874
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 19 faces (0.6% area) of pressure-inlet 4.
+   127  1.2237e-02  7.3644e-03  2.6139e-03  0:00:03 1873
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 19 faces (0.9% area) of pressure-inlet 4.
+   128  1.1641e-02  7.3846e-03  2.5184e-03  0:00:03 1872
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 19 faces (0.9% area) of pressure-inlet 4.
+   129  1.1377e-02  7.4157e-03  2.4465e-03  0:00:02 1871
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 17 faces (0.5% area) of pressure-inlet 4.
+   130  1.1670e-02  7.4671e-03  2.3724e-03  0:00:02 1870
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 16 faces (0.4% area) of pressure-inlet 4.
+   131  1.2415e-02  7.6129e-03  2.3565e-03  0:00:01 1869
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 15 faces (0.4% area) of pressure-inlet 4.
+   132  1.4400e-02  7.7939e-03  2.4001e-03  0:00:01 1868
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 14 faces (0.3% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   133  1.4704e-02  8.0922e-03  2.4497e-03  0:00:01 1867
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 13 faces (0.3% area) of pressure-inlet 4.
+   134  1.3898e-02  8.3019e-03  2.5463e-03  0:00:01 1866
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 12 faces (0.3% area) of pressure-inlet 4.
+   135  1.4397e-02  8.4591e-03  2.6872e-03  0:00:01 1865
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 12 faces (0.6% area) of pressure-inlet 4.
+   136  1.5368e-02  8.6683e-03  2.8448e-03  0:00:00 1864
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (0.2% area) of pressure-inlet 4.
+   137  1.7574e-02  8.8365e-03  3.0581e-03  0:00:00 1863
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (0.9% area) of pressure-inlet 4.
+   138  1.9672e-02  8.9387e-03  3.2565e-03  0:00:00 1862
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (0.6% area) of pressure-inlet 4.
+   139  2.0428e-02  8.9986e-03  3.4116e-03  0:00:00 1861
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 11 faces (0.8% area) of pressure-inlet 4.
+   140  1.8868e-02  9.0767e-03  3.4797e-03  0:00:00 1860
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 8 faces (0.4% area) of pressure-inlet 4.
+   141  1.7989e-02  9.3127e-03  3.6048e-03  0:00:00 1859
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 9 faces (1.2% area) of pressure-inlet 4.
+   142  1.8111e-02  9.3692e-03  3.7788e-03  0:00:00 1858
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 9 faces (0.6% area) of pressure-inlet 4.
+   143  2.1375e-02  9.4460e-03  4.1139e-03  0:00:00 1857
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (1.0% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   144  1.7012e-02  9.9320e-03  4.5959e-03  0:00:00 1856
+
+ Reversed flow on 6 faces (6.1% area) of pressure-outlet 3.
+
+ Reversed flow on 7 faces (0.2% area) of pressure-inlet 4.
+   145  1.7249e-02  9.6766e-03  4.1945e-03  0:00:00 1855
+
+ Reversed flow on 7 faces (7.4% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (1.3% area) of pressure-inlet 4.
+   146  1.7855e-02  9.5690e-03  3.9747e-03  0:00:00 1854
+
+ Reversed flow on 6 faces (6.6% area) of pressure-outlet 3.
+
+ Reversed flow on 8 faces (0.3% area) of pressure-inlet 4.
+   147  1.6685e-02  9.6273e-03  3.7523e-03  0:00:00 1853
+
+ Reversed flow on 6 faces (7.3% area) of pressure-outlet 3.
+
+ Reversed flow on 11 faces (1.1% area) of pressure-inlet 4.
+   148  1.5070e-02  9.5365e-03  3.4111e-03  0:00:00 1852
+
+ Reversed flow on 5 faces (6.3% area) of pressure-outlet 3.
+
+ Reversed flow on 6 faces (0.2% area) of pressure-inlet 4.
+   149  1.3888e-02  9.6381e-03  3.5449e-03  0:06:10 1851
+
+ Reversed flow on 6 faces (0.2% area) of pressure-inlet 4.
+   150  1.3814e-02  9.4428e-03  3.5409e-03  0:04:56 1850
+
+ Reversed flow on 7 faces (1.0% area) of pressure-inlet 4.
+   151  1.4565e-02  9.2056e-03  3.4606e-03  0:03:57 1849
+
+ Reversed flow on 4 faces (0.2% area) of pressure-inlet 4.
+   152  1.4794e-02  9.0218e-03  3.2687e-03  0:03:09 1848
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 3 faces (0.1% area) of pressure-inlet 4.
+   153  1.2594e-02  8.7529e-03  3.0641e-03  0:02:31 1847
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+   154  1.1703e-02  8.5730e-03  2.8243e-03  0:02:01 1846
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   155  1.1722e-02  8.4236e-03  2.8266e-03  0:01:37 1845
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 3 faces (0.8% area) of pressure-inlet 4.
+   156  1.1196e-02  8.4418e-03  2.8032e-03  0:01:17 1844
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 2 faces (0.0% area) of pressure-inlet 4.
+   157  1.2043e-02  8.4616e-03  2.8509e-03  0:01:02 1843
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 1 face (0.0% area) of pressure-inlet 4.
+   158  1.2286e-02  8.3604e-03  2.7955e-03  0:00:49 1842
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 2 faces (0.0% area) of pressure-inlet 4.
+   159  1.0265e-02  8.3323e-03  2.8049e-03  0:00:40 1841
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 1 face (0.0% area) of pressure-inlet 4.
+   160  9.5373e-03  8.2772e-03  2.6749e-03  0:00:32 1840
+
+ Reversed flow on 4 faces (3.7% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (0.9% area) of pressure-inlet 4.
+   161  1.0214e-02  8.2773e-03  2.5034e-03  0:00:25 1839
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 12 faces (0.3% area) of pressure-inlet 4.
+   162  1.0071e-02  8.1986e-03  2.2920e-03  0:00:20 1838
+
+ Reversed flow on 4 faces (4.0% area) of pressure-outlet 3.
+
+ Reversed flow on 16 faces (0.4% area) of pressure-inlet 4.
+   163  8.8855e-03  8.1476e-03  2.3517e-03  0:00:16 1837
+
+ Reversed flow on 3 faces (3.2% area) of pressure-outlet 3.
+
+ Reversed flow on 19 faces (0.8% area) of pressure-inlet 4.
+   164  9.0585e-03  8.0392e-03  2.3559e-03  0:00:13 1836
+
+ Reversed flow on 3 faces (3.4% area) of pressure-outlet 3.
+
+ Reversed flow on 21 faces (1.0% area) of pressure-inlet 4.
+   165  8.1258e-03  7.8952e-03  2.3153e-03  0:00:10 1835
+
+ Reversed flow on 1 face (1.1% area) of pressure-outlet 3.
+
+ Reversed flow on 19 faces (0.7% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   166  7.2361e-03  7.7742e-03  2.1969e-03  0:00:08 1834
+
+ Reversed flow on 19 faces (0.7% area) of pressure-inlet 4.
+   167  7.0601e-03  7.5787e-03  2.2335e-03  0:00:07 1833
+
+ Reversed flow on 20 faces (1.5% area) of pressure-inlet 4.
+   168  6.4488e-03  7.3528e-03  2.0287e-03  0:00:05 1832
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 18 faces (0.7% area) of pressure-inlet 4.
+   169  5.1331e-03  7.0542e-03  1.9083e-03  0:00:04 1831
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 17 faces (0.7% area) of pressure-inlet 4.
+   170  4.5585e-03  6.8050e-03  1.6921e-03  0:00:03 1830
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 15 faces (0.6% area) of pressure-inlet 4.
+   171  4.3223e-03  6.5290e-03  1.5620e-03  0:00:03 1829
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 16 faces (1.4% area) of pressure-inlet 4.
+   172  3.8861e-03  6.3495e-03  1.4206e-03  0:00:02 1828
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 13 faces (0.5% area) of pressure-inlet 4.
+   173  3.5759e-03  6.1274e-03  1.2443e-03  0:00:02 1827
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 12 faces (1.2% area) of pressure-inlet 4.
+   174  3.2930e-03  6.0087e-03  1.1278e-03  0:00:01 1826
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 11 faces (1.2% area) of pressure-inlet 4.
+   175  2.9607e-03  5.9035e-03  1.0633e-03  0:00:01 1825
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 9 faces (0.4% area) of pressure-inlet 4.
+   176  2.7918e-03  5.8128e-03  1.0562e-03  0:00:01 1824
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 10 faces (1.1% area) of pressure-inlet 4.
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   177  2.6500e-03  5.7122e-03  1.0690e-03  0:00:01 1823
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 8 faces (0.3% area) of pressure-inlet 4.
+   178  2.6412e-03  5.6203e-03  1.0673e-03  0:00:01 1822
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 9 faces (1.1% area) of pressure-inlet 4.
+   179  2.7245e-03  5.5596e-03  1.0643e-03  0:00:00 1821
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 7 faces (0.3% area) of pressure-inlet 4.
+   180  2.7290e-03  5.4783e-03  1.0531e-03  0:00:00 1820
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+
+ Reversed flow on 6 faces (0.3% area) of pressure-inlet 4.
+   181  2.6173e-03  5.4455e-03  1.0727e-03  0:00:00 1819
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 6 faces (0.3% area) of pressure-inlet 4.
+   182  2.5731e-03  5.4725e-03  1.0907e-03  0:00:00 1818
+
+ Reversed flow on 2 faces (1.7% area) of pressure-outlet 3.
+
+ Reversed flow on 5 faces (0.2% area) of pressure-inlet 4.
+   183  2.5428e-03  5.5286e-03  1.1063e-03  0:00:00 1817
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 2 faces (0.0% area) of pressure-inlet 4.
+   184  2.5722e-03  5.6336e-03  1.1066e-03  0:00:00 1816
+
+ Reversed flow on 3 faces (2.6% area) of pressure-outlet 3.
+
+ Reversed flow on 1 face (0.0% area) of pressure-inlet 4.
+   185  2.5266e-03  5.7040e-03  1.1432e-03  0:00:00 1815
+
+ Reversed flow on 5 faces (4.8% area) of pressure-outlet 3.
+
+ Reversed flow on 2 faces (0.0% area) of pressure-inlet 4.
+   186  2.5343e-03  5.7706e-03  1.1536e-03  0:00:00 1814
+
+ Reversed flow on 4 faces (4.0% area) of pressure-outlet 3.
+   187  2.6233e-03  5.8027e-03  1.2060e-03  0:00:00 1813
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   188  2.7387e-03  5.7311e-03  1.2338e-03  0:00:00 1812
+   189  2.9554e-03  5.5492e-03  1.2460e-03  0:00:00 1811
+   190  3.0847e-03  5.3283e-03  1.3183e-03  0:00:00 1810
+   191  3.2685e-03  5.1261e-03  1.3253e-03  0:00:00 1809
+   192  3.2592e-03  4.9902e-03  1.3243e-03  0:00:00 1808
+   193  3.0317e-03  4.8518e-03  1.3056e-03  0:00:00 1807
+   194  2.7813e-03  4.7467e-03  1.3104e-03  0:00:00 1806
+   195  2.7085e-03  4.6120e-03  1.3043e-03  0:00:00 1805
+   196  2.6247e-03  4.4913e-03  1.2769e-03  0:00:00 1804
+
+ Reversed flow on 1 face (0.8% area) of pressure-outlet 3.
+   197  2.5205e-03  4.3764e-03  1.2611e-03  0:00:00 1803
+   198  2.4385e-03  4.2283e-03  1.1985e-03  0:06:00 1802
+
+  iter  continuity  x-velocity  y-velocity     time/iter
+   199  2.3995e-03  4.1085e-03  1.1647e-03  0:04:48 1801
+   200  2.3261e-03  4.0009e-03  1.1237e-03  0:03:50 1800
+   201  2.0989e-03  3.8806e-03  1.0891e-03  0:03:04 1799
+   202  1.8918e-03  3.7568e-03  9.9882e-04  0:02:27 1798
+   203  1.7485e-03  3.6436e-03  9.3019e-04  0:01:58 1797
+Done.
+
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+> Halting due to end of file on input.
+
+0 (..\\src\\mpsystem.c@1221): mpt_read: failed: errno = 10054
+
+0: mpt_read: error: read failed trying to read 8 bytes: No error

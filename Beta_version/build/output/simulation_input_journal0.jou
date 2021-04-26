@@ -1,0 +1,21 @@
+sync-chdir ./output
+/file/import/nastran/bulkdata m_0.bdf
+/define/models/axisymmetric y
+/define/models/steady y
+/define/models/solver/pressure-based y
+/define/models/viscous/laminar y
+/define/materials/change-create air air_test n n n n n n n n
+/define/boundary-conditions/zone-type solid-11 fluid
+/define/boundary-conditions fluid solid-11 y air_test n n n n n n
+/define/boundary-condition/modify-zone/zone-type wall-15 axis
+/define/boundary-condition/modify-zone/zone-type wall-13 pressure-inlet
+/define/boundary-condition/modify-zone/zone-type wall-12 pressure-outlet
+/define/boundary-conditions/pressure-inlet wall-13 y n 1000 n 0 n y
+/solve/set/p-v-coupling 20
+/solve/set/discretization-scheme pressure 10
+/solve/set/discretization-scheme mom 1
+/solve/set/gradient-scheme n y
+/solve/initialize/hyb-initialization y
+/solve/iterate 2000
+/file/export/ascii test_result_0.txt default_interior-11 () n pressure velocity-magnitude () n
+/exit yes

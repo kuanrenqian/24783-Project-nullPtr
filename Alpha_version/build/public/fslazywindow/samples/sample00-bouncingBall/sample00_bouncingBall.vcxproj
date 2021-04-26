@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{07750DA3-E9DA-3057-BDAF-E3D893098DBA}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>sample00_bouncingBall</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sample00_bouncingBall.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sample00_bouncingBall</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sample00_bouncingBall.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sample00_bouncingBall</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">sample00_bouncingBall.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">sample00_bouncingBall</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">sample00_bouncingBall.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">sample00_bouncingBall</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\src\Debug\fslazywindow.lib;..\..\..\ysglcpp\src\Debug\ysglcpp.lib;..\..\..\ysglcpp\src\gl2\Debug\ysglcpp_gl2.lib;..\..\..\fssimplewindow\src\Debug\fssimplewindow.lib;..\..\..\ysclass11\src\Debug\ysclass11.lib;..\..\..\ysclass\src\Debug\ysclass.lib;..\..\..\ysbitmapfont\src\Debug\ysbitmapfont.lib;..\..\..\ysgl\src\Debug\ysgl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /SUBSYSTEM:CONSOLE,5.02 /MACHINE:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/Debug/sample00_bouncingBall.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/Debug/sample00_bouncingBall.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\src\Release\fslazywindow.lib;..\..\..\ysglcpp\src\Release\ysglcpp.lib;..\..\..\ysglcpp\src\gl2\Release\ysglcpp_gl2.lib;..\..\..\fssimplewindow\src\Release\fssimplewindow.lib;..\..\..\ysclass11\src\Release\ysclass11.lib;..\..\..\ysclass\src\Release\ysclass.lib;..\..\..\ysbitmapfont\src\Release\ysbitmapfont.lib;..\..\..\ysgl\src\Release\ysgl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /SUBSYSTEM:CONSOLE,5.02 /MACHINE:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/Release/sample00_bouncingBall.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/Release/sample00_bouncingBall.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\src\MinSizeRel\fslazywindow.lib;..\..\..\ysglcpp\src\MinSizeRel\ysglcpp.lib;..\..\..\ysglcpp\src\gl2\MinSizeRel\ysglcpp_gl2.lib;..\..\..\fssimplewindow\src\MinSizeRel\fssimplewindow.lib;..\..\..\ysclass11\src\MinSizeRel\ysclass11.lib;..\..\..\ysclass\src\MinSizeRel\ysclass.lib;..\..\..\ysbitmapfont\src\MinSizeRel\ysbitmapfont.lib;..\..\..\ysgl\src\MinSizeRel\ysgl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /SUBSYSTEM:CONSOLE,5.02 /MACHINE:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/MinSizeRel/sample00_bouncingBall.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/MinSizeRel/sample00_bouncingBall.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\public\src\imported\include;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src;C:\Users\KuanrenQian\24783\public\src\fslazywindow\src\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass\src;C:\Users\KuanrenQian\24783\public\src\ysclass\src\.;C:\Users\KuanrenQian\24783\public\src\ysclass11\src;C:\Users\KuanrenQian\24783\public\src\ysclass11\src\.;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2;C:\Users\KuanrenQian\24783\public\src\ysglcpp\src\gl2\.;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\src\RelWithDebInfo\fslazywindow.lib;..\..\..\ysglcpp\src\RelWithDebInfo\ysglcpp.lib;..\..\..\ysglcpp\src\gl2\RelWithDebInfo\ysglcpp_gl2.lib;..\..\..\fssimplewindow\src\RelWithDebInfo\fssimplewindow.lib;..\..\..\ysclass11\src\RelWithDebInfo\ysclass11.lib;..\..\..\ysclass\src\RelWithDebInfo\ysclass.lib;..\..\..\ysbitmapfont\src\RelWithDebInfo\ysbitmapfont.lib;..\..\..\ysgl\src\RelWithDebInfo\ysgl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /SUBSYSTEM:CONSOLE,5.02 /MACHINE:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/RelWithDebInfo/sample00_bouncingBall.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/RelWithDebInfo/sample00_bouncingBall.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\KuanrenQian\24783\public\src\fslazywindow\samples\sample00-bouncingBall\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/public/src/fslazywindow/samples/sample00-bouncingBall/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/public/src/fslazywindow/samples/sample00-bouncingBall/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/public/src/fslazywindow/samples/sample00-bouncingBall/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/public/src/fslazywindow/samples/sample00-bouncingBall/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/public/fslazywindow/samples/sample00-bouncingBall/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\KuanrenQian\24783\public\src\fslazywindow\samples\sample00-bouncingBall\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\ZERO_CHECK.vcxproj">
+      <Project>{E0661660-A082-373F-8CD1-2EA37D70100D}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\src\fslazywindow.vcxproj">
+      <Project>{E34D9C36-7723-3A00-8C42-C0D799F4189D}</Project>
+      <Name>fslazywindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\src\fssimplewindow.vcxproj">
+      <Project>{C3352B16-DC0C-3C83-BA83-206E5AB999AD}</Project>
+      <Name>fssimplewindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmapfont\src\ysbitmapfont.vcxproj">
+      <Project>{7FCE9567-D884-39C2-9674-05808995BBBD}</Project>
+      <Name>ysbitmapfont</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysclass\src\ysclass.vcxproj">
+      <Project>{98F90967-F575-3F99-B2CB-D7A1BF913CBE}</Project>
+      <Name>ysclass</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysclass11\src\ysclass11.vcxproj">
+      <Project>{02C75ECF-ABFD-36C2-A5D2-55A05E2C16C7}</Project>
+      <Name>ysclass11</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgl\src\ysgl.vcxproj">
+      <Project>{62BB0B72-47C6-36D8-920B-99E189E30BD9}</Project>
+      <Name>ysgl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysglcpp\src\ysglcpp.vcxproj">
+      <Project>{BCBE284B-6FFF-3956-8B44-1C1F52368EAA}</Project>
+      <Name>ysglcpp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysglcpp\src\gl2\ysglcpp_gl2.vcxproj">
+      <Project>{89AA0E8D-F9A0-3742-96FD-53B1992F6B50}</Project>
+      <Name>ysglcpp_gl2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2FAA44E4-94E7-3AA8-8AF7-90F6763A36EB}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/KuanrenQian/24783/nullPointer/Alpha_version -BC:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build --check-stamp-file C:/Users/KuanrenQian/24783/nullPointer/Alpha_version/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeCXXCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeRCCompiler.cmake;C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\3.17.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\ZERO_CHECK.vcxproj">
+      <Project>{E0661660-A082-373F-8CD1-2EA37D70100D}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\2DRetroMapTool\src\gui\2DRetroMapTool.vcxproj">
+      <Project>{5485D331-E2D4-3B2B-8110-4F5D58AE6638}</Project>
+      <Name>2DRetroMapTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\samples\BooleanSubtraction\booleanSubtraction.vcxproj">
+      <Project>{2E411CA4-665B-30B0-BC04-B650FDBC3194}</Project>
+      <Name>booleanSubtraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\lib\cheapgui\cheapgui.vcxproj">
+      <Project>{007AF693-EBCD-3967-8810-3D42B034C097}</Project>
+      <Name>cheapgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\lib\cheapgui\cheapgui_gl1.vcxproj">
+      <Project>{A0548D5F-6E86-3C7A-9BB6-97F0EB693DBE}</Project>
+      <Name>cheapgui_gl1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\lib\cheapgui\template\cheapgui_template.vcxproj">
+      <Project>{B0A8B0C2-8601-37FE-B526-AEC54972F903}</Project>
+      <Name>cheapgui_template</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\lib\cheaplib\cheaplib.vcxproj">
+      <Project>{C16923C1-1B50-3DC9-9870-00D41DD9DADD}</Project>
+      <Name>cheaplib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\lib\yscomport\comportlib.vcxproj">
+      <Project>{DE02CC63-6EAB-306A-90EE-549BECC0F3B9}</Project>
+      <Name>comportlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsgui3d\src\fsgui3d.vcxproj">
+      <Project>{43FB2269-A8FC-3E9D-914B-C2206E0E5362}</Project>
+      <Name>fsgui3d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsgui3d\src\gl1\fsgui3d_gl1.vcxproj">
+      <Project>{E6A2A85C-9802-3121-9185-1B89BB3D9A92}</Project>
+      <Name>fsgui3d_gl1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsgui3d\src\gl2\fsgui3d_gl2.vcxproj">
+      <Project>{20FA1C17-54EB-3763-A89A-E58122F8C4B2}</Project>
+      <Name>fsgui3d_gl2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsgui3d\template\fsgui3d_template.vcxproj">
+      <Project>{2E232A37-0CBA-359F-A858-7376B6CEE4EE}</Project>
+      <Name>fsgui3d_template</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsgui3d\template-easy\fsgui3d_template_easy.vcxproj">
+      <Project>{34A1649D-A2B5-37B2-81BD-DA6B973946E9}</Project>
+      <Name>fsgui3d_template_easy</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsgui3d\template_with_filedialog\fsgui3d_template_with_filedialog.vcxproj">
+      <Project>{9C0D08DA-4A7A-34A8-810C-AC84D2A22CE0}</Project>
+      <Name>fsgui3d_template_with_filedialog</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\filedialog\fsguifiledialog.vcxproj">
+      <Project>{B7A8F481-A49D-3EB1-BFE5-F2C9BA88EC24}</Project>
+      <Name>fsguifiledialog</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\src\fsguilib.vcxproj">
+      <Project>{F3B6C7CD-4F49-34D0-AD82-93A1CAFD1AB0}</Project>
+      <Name>fsguilib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\src\gl1\fsguilib_gl1.vcxproj">
+      <Project>{9CFFD340-DBFC-3F0B-A999-0181DF38645C}</Project>
+      <Name>fsguilib_gl1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\src\gl2\fsguilib_gl2.vcxproj">
+      <Project>{FEA9551D-C967-3FCD-87F7-D968A34A4A8D}</Project>
+      <Name>fsguilib_gl2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\src\nownd\fsguilib_nownd.vcxproj">
+      <Project>{996BE1F3-0ED3-317E-9292-E8DB088A0613}</Project>
+      <Name>fsguilib_nownd</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\template\fsguilib_template.vcxproj">
+      <Project>{8396BDF2-F651-369B-9F98-405C65B0A543}</Project>
+      <Name>fsguilib_template</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fsguilib\template_with_filedialog\fsguilib_template_with_filedialog.vcxproj">
+      <Project>{D490FCA8-62AB-303E-B4A9-F98389B71CAC}</Project>
+      <Name>fsguilib_template_with_filedialog</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\src\fslazywindow.vcxproj">
+      <Project>{E34D9C36-7723-3A00-8C42-C0D799F4189D}</Project>
+      <Name>fslazywindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\template\fslazywindow_template.vcxproj">
+      <Project>{10037D10-9487-3CFD-BB54-FF7BAF8528CE}</Project>
+      <Name>fslazywindow_template</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplefiledialog\src\fssimplefiledialog.vcxproj">
+      <Project>{C40F56D9-EB3D-3764-B107-89A07E352148}</Project>
+      <Name>fssimplefiledialog</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplefiledialog\sample\fssimplefiledialog_sample.vcxproj">
+      <Project>{CC6155C8-A470-309B-8F5F-1F6453C2144C}</Project>
+      <Name>fssimplefiledialog_sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\src\fssimplenowindow.vcxproj">
+      <Project>{6B3EEFBA-E9EC-3CFB-87CA-3BCD76BAF70A}</Project>
+      <Name>fssimplenowindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\src\fssimplewindow.vcxproj">
+      <Project>{C3352B16-DC0C-3C83-BA83-206E5AB999AD}</Project>
+      <Name>fssimplewindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\template\fssimplewindow_template.vcxproj">
+      <Project>{F0EDAE3D-76E9-3021-8E01-5DDB8BC07AEB}</Project>
+      <Name>fssimplewindow_template</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\cmdmain\geblcmd.vcxproj">
+      <Project>{4653A2F0-34D0-330B-A511-5F02F6F5457F}</Project>
+      <Name>geblcmd</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\cmdlib\geblcmdlib.vcxproj">
+      <Project>{A60E88CF-B53B-3D19-AB20-8F82A4DAAA50}</Project>
+      <Name>geblcmdlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\shellrender\geblgl.vcxproj">
+      <Project>{0753292F-FB59-3ACF-AF47-54B18B64C6DD}</Project>
+      <Name>geblgl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\shellrender\gl1\geblgl_gl1.vcxproj">
+      <Project>{8E76C81B-9973-3E9B-AB7C-745DDAE413D5}</Project>
+      <Name>geblgl_gl1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\shellrender\gl2\geblgl_gl2.vcxproj">
+      <Project>{B2726C13-DB71-3712-8482-24A2D2BF5022}</Project>
+      <Name>geblgl_gl2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\shellrender\nownd\geblgl_nownd.vcxproj">
+      <Project>{52EA1644-EB11-3B96-8F7F-4AB18988E4D6}</Project>
+      <Name>geblgl_nownd</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\gui\geblgui.vcxproj">
+      <Project>{B58B31DF-E4BF-3CFC-A1D4-873310424275}</Project>
+      <Name>geblgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\gui_foundation\geblgui_foundation.vcxproj">
+      <Project>{AB22BFA7-A5BA-3455-B3AD-D4E7E4270071}</Project>
+      <Name>geblgui_foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\kernel\geblkernel.vcxproj">
+      <Project>{73394255-AA19-3F2C-AB3E-00FD716FE2CF}</Project>
+      <Name>geblkernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\kernelutil\geblutil.vcxproj">
+      <Project>{610A138F-09EF-3CFB-9D96-1E3DB254C9C2}</Project>
+      <Name>geblutil</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\generate_mesh\genMesh.vcxproj">
+      <Project>{7173E71C-8ACB-3A81-8BD0-C907712E8D1C}</Project>
+      <Name>genMesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\generate_simulation_files\genSim.vcxproj">
+      <Project>{9096E3A1-CAD0-36C3-B925-DF0BB2C875DE}</Project>
+      <Name>genSim</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\cui_transmitter\irsend.vcxproj">
+      <Project>{3E3E69A4-E1E7-305C-84E7-B748987F1591}</Project>
+      <Name>irsend</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\gui\irsensor_gui.vcxproj">
+      <Project>{1A112D55-3124-376F-B51C-345D8282DE2C}</Project>
+      <Name>irsensor_gui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ir_transceiver\lib\irtoy\irtoylib.vcxproj">
+      <Project>{0C03AB3F-E4D0-3DC8-9AC8-BF3785CD2502}</Project>
+      <Name>irtoylib</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\samples\NonManifoldToConstEdge\nonManifoldToConstEdge.vcxproj">
+      <Project>{10EF9FD4-FB17-3523-A277-44160FCE6CA4}</Project>
+      <Name>nonManifoldToConstEdge</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\2DRetroMapTool\src\kernel\retromap_kernel.vcxproj">
+      <Project>{DA97D466-4645-3E6F-86A5-AA86575FAED2}</Project>
+      <Name>retromap_kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\2DRetroMapTool\src\kernel\gl2\retromap_kernel_gl2.vcxproj">
+      <Project>{273356EB-B693-3BE8-B27C-40D1DF29D9A2}</Project>
+      <Name>retromap_kernel_gl2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\2DRetroMapTool\src\kernelutil\retromap_kernelutil.vcxproj">
+      <Project>{D43CDD36-3C8C-3331-8A91-2BAD490544DB}</Project>
+      <Name>retromap_kernelutil</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample00-lineart.vcxproj">
+      <Project>{C02257E6-5AFA-3BA0-B41E-4893D638C1F9}</Project>
+      <Name>sample00-lineart</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fslazywindow\samples\sample00-bouncingBall\sample00_bouncingBall.vcxproj">
+      <Project>{07750DA3-E9DA-3057-BDAF-E3D893098DBA}</Project>
+      <Name>sample00_bouncingBall</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample01-squash.vcxproj">
+      <Project>{9C218AD0-13FE-3804-961E-FC95F67C138D}</Project>
+      <Name>sample01-squash</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample02-echo.vcxproj">
+      <Project>{407468A7-AFBB-3905-BFA6-ACDC5DDBE04A}</Project>
+      <Name>sample02-echo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample03-mouse.vcxproj">
+      <Project>{504E71D0-E9D9-307A-8788-AB91EEF64B6C}</Project>
+      <Name>sample03-mouse</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample04-cube.vcxproj">
+      <Project>{EDDD5993-AD78-36B3-9A70-A8E6D9414F01}</Project>
+      <Name>sample04-cube</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample05-key.vcxproj">
+      <Project>{D7C3B02B-94EB-3A14-B0B9-D52774320AEF}</Project>
+      <Name>sample05-key</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\samples\sample06-15puzzle.vcxproj">
+      <Project>{7196361A-777C-349D-B16F-AA3EDFE02809}</Project>
+      <Name>sample06-15puzzle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\fssimplewindow\src\tests\test_resize.vcxproj">
+      <Project>{224DB8AC-37B2-3461-8CFD-D854C4A6865E}</Project>
+      <Name>test_resize</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ys_bitmap_command_base.vcxproj">
+      <Project>{68180DCD-66B3-3B06-8485-7C57D1065A88}</Project>
+      <Name>ys_bitmap_command_base</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\src\ysbitmap.vcxproj">
+      <Project>{6794DDEF-E0E9-3B28-8CD7-53A8BFB46474}</Project>
+      <Name>ysbitmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmapfont\src\ysbitmapfont.vcxproj">
+      <Project>{7FCE9567-D884-39C2-9674-05808995BBBD}</Project>
+      <Name>ysbitmapfont</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmaputil\src\ysbitmaputil.vcxproj">
+      <Project>{A4B9F5FE-67A5-3604-AFA1-513DEC757CC8}</Project>
+      <Name>ysbitmaputil</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysclass\src\ysclass.vcxproj">
+      <Project>{98F90967-F575-3F99-B2CB-D7A1BF913CBE}</Project>
+      <Name>ysclass</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysclass11\src\ysclass11.vcxproj">
+      <Project>{02C75ECF-ABFD-36C2-A5D2-55A05E2C16C7}</Project>
+      <Name>ysclass11</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysfontrenderer\src\ysfontrenderer.vcxproj">
+      <Project>{CF53D36E-B5D5-3E3C-855F-7CE01A076701}</Project>
+      <Name>ysfontrenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\main\ysgebl64.vcxproj">
+      <Project>{690BA369-F06E-3235-9E64-AD99F4E07BD9}</Project>
+      <Name>ysgebl64</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgl\src\ysgl.vcxproj">
+      <Project>{62BB0B72-47C6-36D8-920B-99E189E30BD9}</Project>
+      <Name>ysgl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgl\src\ysgl_makec.vcxproj">
+      <Project>{1E77ED95-C552-3967-AF03-37EB1DEFFA1F}</Project>
+      <Name>ysgl_makec</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgl\src\ysgl_makeh.vcxproj">
+      <Project>{A4B2E3AF-3ABA-3CC3-B8E6-14AC73B9B121}</Project>
+      <Name>ysgl_makeh</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgl\src\ysgl_preproc.vcxproj">
+      <Project>{F1372697-4FF1-353F-90BE-E34D4455B941}</Project>
+      <Name>ysgl_preproc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysglcpp\src\ysglcpp.vcxproj">
+      <Project>{BCBE284B-6FFF-3956-8B44-1C1F52368EAA}</Project>
+      <Name>ysglcpp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysglcpp\src\gl1\ysglcpp_gl1.vcxproj">
+      <Project>{A206586D-3FBB-3744-A153-D49085995292}</Project>
+      <Name>ysglcpp_gl1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysglcpp\src\gl2\ysglcpp_gl2.vcxproj">
+      <Project>{89AA0E8D-F9A0-3742-96FD-53B1992F6B50}</Project>
+      <Name>ysglcpp_gl2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysglcpp\src\nownd\ysglcpp_nownd.vcxproj">
+      <Project>{836E0660-9957-3BA5-A674-10C3C6E3F6B0}</Project>
+      <Name>ysglcpp_nownd</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysinvertbmp.vcxproj">
+      <Project>{AFA9ECF1-263F-327A-A4E7-E5771BFB026D}</Project>
+      <Name>ysinvertbmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysmakealphamask.vcxproj">
+      <Project>{281AF96E-A749-3286-BEE4-983C5281102B}</Project>
+      <Name>ysmakealphamask</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysmakeblackwhite.vcxproj">
+      <Project>{81AF1739-A98D-31E9-9DBC-C585DA7CDA7B}</Project>
+      <Name>ysmakeblackwhite</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysmakeblankbmp.vcxproj">
+      <Project>{9A0B2062-19C2-33CC-88DF-F8DD1F322E3D}</Project>
+      <Name>ysmakeblankbmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysmakebmptile.vcxproj">
+      <Project>{444A0224-11EB-315E-BDD0-B8E5068F9D76}</Project>
+      <Name>ysmakebmptile</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysmakedensitymap.vcxproj">
+      <Project>{2A928B44-0F95-3E2E-8AB6-19FD7F884AC4}</Project>
+      <Name>ysmakedensitymap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmapfont\cmdtools\ysmaketextbmp.vcxproj">
+      <Project>{D81CE894-F2A2-39CC-B943-604A4E67367A}</Project>
+      <Name>ysmaketextbmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysmakewhitetransparent.vcxproj">
+      <Project>{7311662F-DEA9-3B76-9936-977564FE4680}</Project>
+      <Name>ysmakewhitetransparent</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysnegatebmp.vcxproj">
+      <Project>{C413F6B7-A3FA-306F-9F37-C39FFDB7B999}</Project>
+      <Name>ysnegatebmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssystemfont\src\ysnullsystemfont.vcxproj">
+      <Project>{B2C09047-6177-393F-A986-DDAE9B1DF9AE}</Project>
+      <Name>ysnullsystemfont</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\yspastebmp.vcxproj">
+      <Project>{5E045705-53D4-39DD-98D9-08E09A14F5CF}</Project>
+      <Name>yspastebmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysport\src\ysport.vcxproj">
+      <Project>{8994026A-FBF6-3704-9FC8-969BDA192A30}</Project>
+      <Name>ysport</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysbitmap\cmdtools\ysresizebmp.vcxproj">
+      <Project>{27F54512-7A9F-3384-9388-0AC51350846A}</Project>
+      <Name>ysresizebmp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ysgebl\src\samples\YsShellExt\ysshellext_sample.vcxproj">
+      <Project>{14EEEC41-F643-3831-B014-F3644B3C33FB}</Project>
+      <Name>ysshellext_sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\src\yssimplesound.vcxproj">
+      <Project>{626581F4-B192-35D5-81C9-F81F19BBFE74}</Project>
+      <Name>yssimplesound</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\src\windows_dsound\yssimplesound_dsound.vcxproj">
+      <Project>{C52B8DF2-5C28-309F-9570-4048C78F330D}</Project>
+      <Name>yssimplesound_dsound</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\src\nownd\yssimplesound_nownd.vcxproj">
+      <Project>{E27A8697-8650-35FA-A299-782235740299}</Project>
+      <Name>yssimplesound_nownd</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\sample\yssimplesound_sample.vcxproj">
+      <Project>{5CC8EE6A-EC77-34CC-BEE5-86AA3FFE351C}</Project>
+      <Name>yssimplesound_sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\sample_fssimplewindow\yssimplesound_sample_fssimplewindow.vcxproj">
+      <Project>{65443DCE-66C5-3C9D-B0FA-A65C7EEF2222}</Project>
+      <Name>yssimplesound_sample_fssimplewindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\test\yssimplesound_test.vcxproj">
+      <Project>{5BA8FB31-7157-3D14-AFD6-D59515659102}</Project>
+      <Name>yssimplesound_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssimplesound\src\unittest\yssimplesound_test01.vcxproj">
+      <Project>{459CF5F9-0568-34B9-BFDA-76C226D7490D}</Project>
+      <Name>yssimplesound_test01</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssocket\src\yssocket.vcxproj">
+      <Project>{A98CC4B5-6DEA-3194-9DCF-8B65F0448875}</Project>
+      <Name>yssocket</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\yssystemfont\src\yssystemfont.vcxproj">
+      <Project>{1C2332EC-D7F0-3CEC-8D37-BA5050A720A9}</Project>
+      <Name>yssystemfont</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ystexturemanager\src\ystexturemanager.vcxproj">
+      <Project>{7870E35B-CC71-31EA-9892-91FE70561787}</Project>
+      <Name>ystexturemanager</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ystexturemanager\src\gl\ystexturemanager_gl.vcxproj">
+      <Project>{0068255E-C05C-32E2-8C87-BA8FE1FABA02}</Project>
+      <Name>ystexturemanager_gl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Alpha_version\build\public\ystexturemanager\src\null\ystexturemanager_nownd.vcxproj">
+      <Project>{B6FAA39C-30B0-38F6-A327-47AC9D8922B1}</Project>
+      <Name>ystexturemanager_nownd</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

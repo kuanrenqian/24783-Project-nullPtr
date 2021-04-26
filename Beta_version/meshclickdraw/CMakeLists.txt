@@ -1,0 +1,3 @@
+add_library(meshclickdraw meshclickdraw.cpp meshclickdraw.h)
+target_link_libraries(meshclickdraw ysbitmapfont fssimplewindow)
+target_include_directories(meshclickdraw PUBLIC .)

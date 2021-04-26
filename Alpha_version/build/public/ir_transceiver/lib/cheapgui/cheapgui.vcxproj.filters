@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\KuanrenQian\24783\public\src\ir_transceiver\lib\cheapgui\gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\KuanrenQian\24783\public\src\ir_transceiver\lib\cheapgui\gui_gl2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\KuanrenQian\24783\public\src\ir_transceiver\lib\cheapgui\gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\KuanrenQian\24783\public\src\ir_transceiver\lib\cheapgui\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7C4045A1-ABD8-3D76-9E08-7664DACEECE1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F6401DFF-5951-31B4-A60D-2A7C646315FA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
