@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
    
-    run_simulation_files(0);
+    // run_simulation_files(0);
     FILE *fp1 = fopen(".\\output\\test_result_0.txt", "r");
     FILE *fp2 = fopen("..\\generate_simulation\\tests_resource_files\\test_result_0.txt", "r");
   
@@ -18,6 +18,6 @@ int main(){
     // closing both file
     fclose(fp1);
     fclose(fp2);
-    
+    cout << 0 << endl;
     return 0;
 }

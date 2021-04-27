@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -97,10 +97,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -113,7 +113,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -132,10 +132,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -167,10 +167,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -183,7 +183,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -201,10 +201,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KuanrenQian\24783\nullPointer\Beta_version\draw_mesh\.;C:\Users\KuanrenQian\24783\public\src\fssimplewindow\src;C:\Users\KuanrenQian\24783\public\src\ysbitmapfont\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src;C:\Users\KuanrenQian\24783\public\src\ysgl\src\.;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\src\imported\include;C:\Users\KuanrenQian\24783\nullPointer\Beta_version\public\src\imported\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -285,6 +285,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Beta_version\build\public\fssimplewindow\src\fssimplewindow.vcxproj">
       <Project>{7800DC5C-1932-3BF3-B085-B3558F98B4DC}</Project>
       <Name>fssimplewindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Beta_version\build\public\ysbitmapfont\src\ysbitmapfont.vcxproj">
+      <Project>{F5F9274D-3F7D-3EF5-8E04-6933841656D9}</Project>
+      <Name>ysbitmapfont</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\KuanrenQian\24783\nullPointer\Beta_version\build\public\ysgl\src\ysgl.vcxproj">
+      <Project>{98682752-3024-3640-8250-B66565DDBEB4}</Project>
+      <Name>ysgl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

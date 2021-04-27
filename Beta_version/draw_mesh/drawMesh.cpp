@@ -1,7 +1,7 @@
 #include "drawMesh.h"
 
-const int wid = 1200;
-const int hei = 1000;
+const int wid = 900;
+const int hei = 800;
 vector<point> verts;
 vector<tvi> tvis;
 vector<qvi> qvis;
@@ -83,20 +83,24 @@ void read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &
                 p.x = x;
                 p.y = y;
                 verts.push_back(p);
-                // scale to window
-                if (x > xmax) {
-                    xmax = x;
-                }
-                if (y > ymax) {
-                    ymax = y;
-                }
-                if (x < xmin) {
-                    xmin = x;
-                }
-                if (y < ymin) {
-                    ymin = y;
-                }
+                // // scale to window
+                // if (x > xmax) {
+                //     xmax = x;
+                // }
+                // if (y > ymax) {
+                //     ymax = y;
+                // }
+                // if (x < xmin) {
+                //     xmin = x;
+                // }
+                // if (y < ymin) {
+                //     ymin = y;
+                // }
             }
+            xmin = 0;
+            xmax = 80;
+            ymin = 0;
+            ymax = 50;
             // type 1
             if (type == "CTRIA3") {
                 // first vertex's index
@@ -160,10 +164,7 @@ void Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
     // https://stackoverflow.com/questions/23438393/new-to-xcode-cant-open-files-in-c/23449331
    
     read_mesh(pathToFile,xmin,xmax,ymin,ymax);
-    xmin = 0;
-    xmax = 80;
-    ymin = 0;
-    ymax = 50;
+    // hard coding dimension - some potential issue with reading max from .bdf
 
     // draw
     // draw here >>>
@@ -197,6 +198,12 @@ void Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
         x4 = (x4-xmin)/xmax*300+Xoffset;   y4 = (y4-ymin)/ymax*187.5+Yoffset;
         DrawQuad(x1, y1, x2, y2, x3, y3, x4, y4);
     }
+    glRasterPos2d(250,50);
+    glColor3ub(0, 0, 0);
+    YsGlDrawFontBitmap16x20("Displaying mesh");
+    glRasterPos2d(250,80);
+    YsGlDrawFontBitmap16x20("SPACE to continue");
+    
 }
 
 void Draw_All_mesh(vector<string> AllPathToFile){
@@ -206,8 +213,8 @@ void Draw_All_mesh(vector<string> AllPathToFile){
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     for(int i=0; i<numFiles; ++i){
-        row = i/4;
-        column = i%4;
+        row = i/3;
+        column = i%3;
         y_off = row*187.5;
         x_off = column*300;
         Draw_mesh(AllPathToFile[i], x_off, y_off);

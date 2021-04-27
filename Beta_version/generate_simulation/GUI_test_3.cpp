@@ -7,6 +7,6 @@ int main(){
     if(xmax!=800){
         return 1;
     }
-
+    cout << "WORKS" << endl;
     return 0;
 }

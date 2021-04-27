@@ -9,8 +9,8 @@ int main(){
     string fileName;
 
     // FsSimpleWindows size
-    int wid = 1200;
-    int hei = 1000;
+    int wid = 900;
+    int hei = 800;
 
     // // termination state
     bool termination = false;

@@ -10,6 +10,7 @@
 #include <vector>
 #define GL_SILENCE_DEPRECATION
 #include <fssimplewindow.h>
+#include "ysglfontdata.h"
 using namespace std;
 
 // 2d point

@@ -6,14 +6,18 @@
 #include "ysglfontdata.h"
 #include <vector>
 #include <math.h>
+#include <string>
+
 
 std::vector<float> bezier(std::vector<float> control_points);
 
 void Initialize(std::vector<float> &col, std::vector<float> &vtx);
 
-void RunOneStep(std::vector<float> &col, std::vector<float> &vtx, bool &term, std::vector <float> &allctrl);
+void RunOneStep(std::vector<float> &col, std::vector<float> &vtx, bool &term, std::vector <float> &allctrl, std::vector<float> &col_layout, std::vector<float> &vtx_layout);
 
-void Draw(std::vector<float> &col, std::vector<float> &vtx);
+void Draw_coordinates();
+
+void Draw(std::vector<float> &col, std::vector<float> &vtx, std::vector<float> &col_layout, std::vector<float> &vtx_layout);
 
 std::vector<float> runClickDraw();
 

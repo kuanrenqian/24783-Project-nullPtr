@@ -189,7 +189,7 @@ cheapgui_LIB_DEPENDS:STATIC=general;ysgl;general;ysbitmapfont;
 cheapgui_gl1_LIB_DEPENDS:STATIC=general;ysgl;general;ysbitmapfont;
 
 //Dependencies for the target
-drawMesh_LIB_DEPENDS:STATIC=general;fssimplewindow;
+drawMesh_LIB_DEPENDS:STATIC=general;fssimplewindow;general;ysbitmapfont;
 
 //Dependencies for the target
 fsgui3d_LIB_DEPENDS:STATIC=general;fsguilib;
@@ -249,7 +249,7 @@ geblkernel_LIB_DEPENDS:STATIC=general;ysclass;general;ysclass11;general;ysglcpp;
 geblutil_LIB_DEPENDS:STATIC=general;geblkernel;
 
 //Dependencies for the target
-genSim_LIB_DEPENDS:STATIC=general;ysclass;general;fssimplewindow;
+genSim_LIB_DEPENDS:STATIC=general;ysclass;general;fssimplewindow;general;ysbitmapfont;
 
 //Dependencies for the target
 irtoylib_LIB_DEPENDS:STATIC=general;comportlib;general;cheaplib;

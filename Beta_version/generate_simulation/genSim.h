@@ -14,6 +14,7 @@
 #include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include "ysglfontdata.h"
 using namespace std;
 
 void generate_mesh_exe_radius(float radius); // old version
@@ -32,12 +33,12 @@ void Draw_Simulation_Result(int numSimu, int x_off, int y_off);
 
 void Draw_All_Simulation_Results(int batch);
 
-// int compareFiles(FILE *fp1, FILE *fp2);
+int compareFiles(FILE *fp1, FILE *fp2);
 
-// int GUI_test1();
+int GUI_test1();
 
-// vector <float> GUI_test2();
+vector <float> GUI_test2();
 
-// float GUI_test3();
+float GUI_test3();
 
 #endif

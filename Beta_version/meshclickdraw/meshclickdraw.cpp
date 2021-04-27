@@ -46,8 +46,8 @@ void Initialize(std::vector<float> &col, std::vector<float> &vtx)
   col.push_back(0);
   col.push_back(1);
   //control pt 3 fixed
-  vtx.push_back((float)400);
-  vtx.push_back((float)300);
+  vtx.push_back((float)380);
+  vtx.push_back((float)340);
   col.push_back(0);
   col.push_back(0);
   col.push_back(0);
@@ -62,7 +62,7 @@ void Initialize(std::vector<float> &col, std::vector<float> &vtx)
   std::cout << "Please define middle point for arcs, when arc visible, press 'SPACE' to confirm, 'R' to redo." << std::endl;
 }
 
-void RunOneStep(std::vector<float> &col, std::vector<float> &vtx, bool &term, std::vector <float> &allctrl)
+void RunOneStep(std::vector<float> &col, std::vector<float> &vtx, bool &term, std::vector <float> &allctrl, std::vector<float> &col_layout, std::vector<float> &vtx_layout)
 {
   auto key=FsInkey();
   if(FSKEY_ESC==key)
@@ -115,8 +115,40 @@ void RunOneStep(std::vector<float> &col, std::vector<float> &vtx, bool &term, st
       Initialize(col,vtx);
     }
   }
+
+  // added code to draw layout
+  vtx_layout.push_back(0);    vtx_layout.push_back(0);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(800);  vtx_layout.push_back(0);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(800);  vtx_layout.push_back(375);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(600);  vtx_layout.push_back(375);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(800);  vtx_layout.push_back(375);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(800);  vtx_layout.push_back(500);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(0);    vtx_layout.push_back(500);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
+  vtx_layout.push_back(0);    vtx_layout.push_back(0);
+  col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(0);    col_layout.push_back(1);
 }
-void Draw(std::vector<float> &col, std::vector<float> &vtx)
+
+void Draw_coordinates(){
+  // draw coordinates
+  glRasterPos2d(200,180);
+  glColor3ub(0, 0, 0);
+  YsGlDrawFontBitmap10x14("(20,30)");
+  glRasterPos2d(380,320);
+  glColor3ub(0, 0, 0);
+  YsGlDrawFontBitmap10x14("(40,160)");
+  glRasterPos2d(600,355);
+  glColor3ub(0, 0, 0);
+  YsGlDrawFontBitmap10x14("(60,12.5)");
+}
+
+void Draw(std::vector<float> &col, std::vector<float> &vtx, std::vector<float> &col_layout, std::vector<float> &vtx_layout)
 {
   glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
   glShadeModel(GL_SMOOTH);
@@ -132,6 +164,23 @@ void Draw(std::vector<float> &col, std::vector<float> &vtx)
   else {
     glDrawArrays(GL_LINE_STRIP,0,vtx.size()/2);
   }
+
+  // draw layout
+  glColorPointer(4,GL_FLOAT,0,col_layout.data());
+  glVertexPointer(2,GL_FLOAT,0,vtx_layout.data());
+  glDrawArrays(GL_LINE_STRIP,0,vtx_layout.size()/2);
+  Draw_coordinates();
+
+  glRasterPos2d(250,50);
+  glColor3ub(0, 0, 0);
+  YsGlDrawFontBitmap16x20("Define 2 middle points for arcs");
+  glRasterPos2d(250,80);
+  YsGlDrawFontBitmap16x20("SPACE to confirm, R to redo.");
+  glRasterPos2d(600,450);
+  YsGlDrawFontBitmap12x16("Vaccum tube inlet");
+  glRasterPos2d(250,520);
+  YsGlDrawFontBitmap16x20("Make sure to empty build/output");
+
   glDisableClientState(GL_VERTEX_ARRAY);
   glDisableClientState(GL_COLOR_ARRAY);
 
@@ -143,11 +192,12 @@ std::vector<float> runClickDraw()
   // FsOpenWindow(0,0,800,600,1);
   bool term=false;
   std::vector <float> vtx,col,allctrl;
+  std::vector <float> vtxLayout,colLayout;
   Initialize(col,vtx);
   while (!term) {
     FsPollDevice();
-    RunOneStep(col,vtx,term,allctrl);
-    Draw(col,vtx);
+    RunOneStep(col,vtx,term,allctrl,colLayout,vtxLayout);
+    Draw(col,vtx,colLayout,vtxLayout);
   }
 
   std::vector <float> orderedControl;
