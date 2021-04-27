@@ -1,0 +1,26 @@
+#################################################################
+#   24-783 Project - Automated Training Data Generation for     #
+#   Geometrical Machine Learning                                #
+#   Team: nullPtr                                               #
+#   Team member: Allen Jiang, Bryant Porras, Kuanren Qian,      #
+#                Shu You, Vimalesh Vasu                         #
+#   Date: 04/27/2021                                            #
+#################################################################
+
+Description: This program is a automated pipeline for generating
+vacuum tube geometries, meshing, simulation, and visulization.
+
+Requirements:
+1. Valid installation of Fluent with correct environmental path
+    (run C:\Program Files\ANSYS Inc\v202\fluent\ntbin\win64\setenv.exe)
+2. Access to YS public library
+    (Change path in CMakefiles as needed)
+
+Usage:
+1. /release/main.exe
+2. enter batch size in commandline window
+3. Follow on screen instruction and draw tube shape
+4. Visualize mesh
+5. Repeat step 3 and 4 until batch size is reached
+6. Program will automatically call fluent to run all simulation
+7. GUI visualization of all simulation  results

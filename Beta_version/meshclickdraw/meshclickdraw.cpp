@@ -178,8 +178,6 @@ void Draw(std::vector<float> &col, std::vector<float> &vtx, std::vector<float> &
   YsGlDrawFontBitmap16x20("SPACE to confirm, R to redo.");
   glRasterPos2d(600,450);
   YsGlDrawFontBitmap12x16("Vaccum tube inlet");
-  glRasterPos2d(250,520);
-  YsGlDrawFontBitmap16x20("Make sure to empty build/output");
 
   glDisableClientState(GL_VERTEX_ARRAY);
   glDisableClientState(GL_COLOR_ARRAY);

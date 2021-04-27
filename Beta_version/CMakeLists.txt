@@ -15,3 +15,6 @@ add_subdirectory(generate_simulation)
 add_executable(main MACOSX_BUNDLE main.cpp)
 target_link_libraries(main meshclickdraw drawMesh genSim)
 
+#copy necessary files to build for gmsh
+configure_file(generate_mesh/mesh.exe generate_mesh/Release/mesh.exe COPYONLY)
+configure_file(generate_mesh/gmsh-4.8.dll generate_mesh/Release/gmsh-4.8.dll COPYONLY)

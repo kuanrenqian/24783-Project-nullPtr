@@ -72,6 +72,12 @@ void generate_simulation_files(string InFile, int numSimu){
 
 }
 
+void check_output_folder(){
+    string outputPath = filesystem::current_path().u8string()+"\\output";
+    filesystem::path pathToDelete(outputPath);  
+    remove_all(pathToDelete);
+}
+
 void run_simulation_files(int numSimu){
     // This function calls fluent to run a double precision, no gui simulation using generated journal file
     printf ("Checking if system is available...");
@@ -251,7 +257,7 @@ void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
 	glVertexPointer(2,GL_FLOAT,0,vtx2d.data());
 	glDrawArrays(GL_POINTS,0,vtx2d.size()/2);
 
-    glRasterPos2d(250,50);
+    glRasterPos2d(230,50);
     glColor3ub(0, 0, 0);
     YsGlDrawFontBitmap16x20("All simulations completed.");
     glRasterPos2d(230,80);

@@ -32,6 +32,9 @@ int main(){
     string pathToFile; // single meshFile name (.bdf)
     AllPathToFile.clear();
     control_pts.clear();
+
+    check_output_folder(); // this clears output folder
+
     // generate and display all mesh
     for (int i=0; i<batch; ++i){
         
@@ -64,7 +67,7 @@ int main(){
         generate_simulation_files(fileName,i);
     }
 
-    // run simulation
+    // run simulation (requires licensed installation of Fluent software with correct environmental path)
     for (int i=0; i<batch; ++i){
         run_simulation_files(i);
     }

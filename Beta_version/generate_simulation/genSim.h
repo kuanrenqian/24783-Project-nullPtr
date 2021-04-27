@@ -23,6 +23,8 @@ void generate_mesh_exe_ctrlPoints(float c1x, float c1y, float c2x, float c2y, fl
 
 void generate_simulation_files(string InFile, int numSimu);
 
+void check_output_folder();
+
 void run_simulation_files(int numSimu);
 
 void parula_colormap(float input, float max_input, float &R, float &G, float &B);
