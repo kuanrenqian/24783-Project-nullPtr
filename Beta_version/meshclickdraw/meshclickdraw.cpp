@@ -187,7 +187,6 @@ void Draw(std::vector<float> &col, std::vector<float> &vtx, std::vector<float> &
 
 std::vector<float> runClickDraw()
 {
-  // FsOpenWindow(0,0,800,600,1);
   bool term=false;
   std::vector <float> vtx,col,allctrl;
   std::vector <float> vtxLayout,colLayout;
@@ -197,7 +196,6 @@ std::vector<float> runClickDraw()
     RunOneStep(col,vtx,term,allctrl,colLayout,vtxLayout);
     Draw(col,vtx,colLayout,vtxLayout);
   }
-
   std::vector <float> orderedControl;
   orderedControl.push_back(allctrl[0]);
   orderedControl.push_back(allctrl[1]);

@@ -78,7 +78,7 @@ void check_output_folder(){
     remove_all(pathToDelete);
 }
 
-void run_simulation_files(int numSimu){
+int run_simulation_files(int numSimu){
     // This function calls fluent to run a double precision, no gui simulation using generated journal file
     printf ("Checking if system is available...");
     if (system(NULL)) puts ("Ok");
@@ -87,6 +87,7 @@ void run_simulation_files(int numSimu){
     string command = "fluent 2ddp -g -i ./output/simulation_input_journal" + to_string(numSimu) + ".jou";
     const char *command_char = command.c_str();
     system (command_char);
+    return 0;
 }
 
 void parula_colormap(float input, float max_input, float &R, float &G, float &B){
@@ -164,7 +165,7 @@ void parula_colormap(float input, float max_input, float &R, float &G, float &B)
 
 }
 
-float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <float> &col2d, int Xoffset, int Yoffset){
+float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <float> &col2d, int Xoffset, int Yoffset, float maxP){
     // this function is float only for ctest purpose
     vector <float> temp_rgb;
     vtx2d.clear();
@@ -220,7 +221,7 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
         vtx2d[i+1] = 800-(vtx2d[i+1]-ymin)/ymax*187.5+Yoffset;
     }
     
-    float max_val = *max_element(temp_rgb.begin(), temp_rgb.end());
+    maxP = *max_element(temp_rgb.begin(), temp_rgb.end());
 
     float r,g,b,val;
     for(int i=0; i<temp_rgb.size()-3; i+=3){
@@ -229,7 +230,7 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
             r = 2; g = 2; b = 2;
         }
         else{
-            parula_colormap(val,max_val,r,g,b);
+            parula_colormap(val,maxP,r,g,b);
         }
         col2d.push_back(r);  col2d.push_back(g); col2d.push_back(b); col2d.push_back(1);
     }
@@ -239,23 +240,81 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
     return xmax;
 }
 
+void gen_colorBar(vector <float> &vtx2d, vector <float> &col2d,  int Xoffset, int Yoffset){
+    
+    float r,g,b;
+    for(float i=0; i<300; ++i){
+        parula_colormap(i,300,r,g,b);
+        for(float j=187; j<200; ++j){
+            vtx2d.push_back(i+Xoffset); vtx2d.push_back(800-j+Yoffset);
+            col2d.push_back(r); col2d.push_back(g); col2d.push_back(b); col2d.push_back(1); 
+        }
+    }
+}
+
+void gen_cbar(vector <float> &vtx2d_grid, vector <float> &col2d_grid,  int Xoffset, int Yoffset){
+    
+    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-200+Yoffset);
+    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-0+Yoffset);
+    vtx2d_grid.push_back(295+Xoffset);  vtx2d_grid.push_back(800-0+Yoffset);
+    vtx2d_grid.push_back(295+Xoffset);  vtx2d_grid.push_back(800-200+Yoffset);
+    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-200+Yoffset);
+    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-180+Yoffset);
+    vtx2d_grid.push_back(295+Xoffset);  vtx2d_grid.push_back(800-180+Yoffset);
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
+
+}
+
+void label_cbar(int Xoffset, int Yoffset, float maxP){
+    const char *half_val = to_string(maxP/2).c_str();
+    const char *max_val = to_string(maxP).c_str();
+    printf(half_val);
+    cout << max_val << endl;
+    glColor3ub(0, 0, 0);
+    glRasterPos2d(5+Xoffset,800-170+Yoffset);
+    YsGlDrawFontBitmap7x10("0");    
+    glRasterPos2d(120+Xoffset,800-170+Yoffset);
+    YsGlDrawFontBitmap7x10(half_val);
+    glRasterPos2d(280+Xoffset,800-170+Yoffset);
+    YsGlDrawFontBitmap7x10(max_val);
+}
+
 void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
     // This function draws simulation results read by read_and_plot_testResultTXT()
     // draws GL_POINTS
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
+    
+    std::vector <float> vtx2d_grid;
+	std::vector <float> col2d_grid;
+    float maxP;
 
-    read_and_plot_testResultTXT(numSimu, vtx2d, col2d, x_off, y_off);
-
+    read_and_plot_testResultTXT(numSimu, vtx2d, col2d, x_off, y_off, maxP);
+    gen_colorBar(vtx2d,col2d,x_off,y_off);
+    gen_cbar(vtx2d_grid,col2d_grid,x_off,y_off);
+    
 	glShadeModel(GL_SMOOTH);
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
     glEnable(GL_POINT_SMOOTH);
-    glPointSize(4);
+    glPointSize(10); // large points -> hide empty area
 	glColorPointer(4,GL_FLOAT,0,col2d.data());
 	glVertexPointer(2,GL_FLOAT,0,vtx2d.data());
 	glDrawArrays(GL_POINTS,0,vtx2d.size()/2);
+    
+    glLineWidth(5);
+    glColorPointer(4,GL_FLOAT,0,col2d_grid.data());
+    glVertexPointer(2,GL_FLOAT,0,vtx2d_grid.data());
+    glDrawArrays(GL_LINE_STRIP,0,vtx2d_grid.size()/2);
+    
+    label_cbar(x_off,y_off,maxP);
 
     glRasterPos2d(230,50);
     glColor3ub(0, 0, 0);
@@ -280,7 +339,7 @@ void Draw_All_Simulation_Results(int batch){
     for(int i=0; i<batch; ++i){
         row = i/3;
         column = i%3;
-        y_off = -row*187.5;
+        y_off = -row*210;
         x_off = column*300;
         Draw_Simulation_Result(i, x_off, y_off);
     }
@@ -306,7 +365,6 @@ int compareFiles(FILE *fp1, FILE *fp2)
             pos = 0;
         }
   
-
         if (ch1 != ch2)        {
             cout << "Failed !!" << endl;
             cout << ch1 << " " << ch2 << endl;
@@ -322,19 +380,19 @@ int compareFiles(FILE *fp1, FILE *fp2)
 int GUI_test1(){
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0);
+    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, 0);
     return vtx2d.size();
 }
 
 vector <float> GUI_test2(){
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0);
+    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, 0);
     return col2d;
 }
 
 float GUI_test3(){
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    return read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0);
+    return read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, 0);
 }

@@ -1,6 +1,6 @@
 #include "drawMesh.h"
 
-const int wid = 900;
+// const int wid = 900;
 const int hei = 800;
 vector<point> verts;
 vector<tvi> tvis;
@@ -33,6 +33,28 @@ void DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3) {
     glEnd();
 }
 
+void DrawCircle(int cx, int cy, int rad, int fill) {
+    if (0 != fill)
+    {
+        glBegin(GL_POLYGON);
+    }
+    else
+    {
+        glBegin(GL_LINE_LOOP);
+    }
+
+    int i;
+    for (i = 0; i < 64; i++)
+    {
+        double angle = (double)i * 3.1415926 / 32.0;
+        double x = (double)cx + cos(angle) * (double)rad;
+        double y = (double)cy + sin(angle) * (double)rad;
+        glVertex2d(x, y);
+    }
+
+    glEnd();
+}
+
 void DrawQuad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
     glColor3ub(0, 128, 255);
     glBegin(GL_LINE_LOOP);
@@ -45,7 +67,7 @@ void DrawQuad(float x1, float y1, float x2, float y2, float x3, float y3, float 
     glEnd();
 }
 
-void read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &ymax){
+int read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &ymax){
     verts.clear();
     tvis.clear();
     qvis.clear();
@@ -55,6 +77,7 @@ void read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &
 
     if (mFile.fail()) {
         cerr << "Failed to open file " << pathToFile << " !! Most likely cause is bad control points -> failed mesh" << endl;
+        return 1;
     }
     if (mFile.is_open()) {
         string line;
@@ -153,9 +176,10 @@ void read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &
         }
         mFile.close();
     }
+    return 0;
 }
 
-void Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
+int Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
     // vars
     float xmax, ymax, xmin, ymin;
 
@@ -163,7 +187,9 @@ void Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
     // How to make sure your file can be opened in XCode in a Mac
     // https://stackoverflow.com/questions/23438393/new-to-xcode-cant-open-files-in-c/23449331
    
-    read_mesh(pathToFile,xmin,xmax,ymin,ymax);
+    if (read_mesh(pathToFile,xmin,xmax,ymin,ymax) != 0) {
+        return 1;
+    }
     // hard coding dimension - some potential issue with reading max from .bdf
 
     // draw
@@ -203,10 +229,10 @@ void Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
     YsGlDrawFontBitmap16x20("Displaying mesh");
     glRasterPos2d(250,80);
     YsGlDrawFontBitmap16x20("SPACE to continue");
-    
+    return 0;
 }
 
-void Draw_All_mesh(vector<string> AllPathToFile){
+int Draw_All_mesh(vector<string> AllPathToFile){
     int numFiles = AllPathToFile.size();
     int row, column;
     int x_off, y_off;
@@ -217,9 +243,12 @@ void Draw_All_mesh(vector<string> AllPathToFile){
         column = i%3;
         y_off = row*187.5;
         x_off = column*300;
-        Draw_mesh(AllPathToFile[i], x_off, y_off);
+        if (Draw_mesh(AllPathToFile[i], x_off, y_off) != 0) {
+            return 1;
+        }
     }
     // <<< draw here
     FsSwapBuffers();
     FsSleep(25);
+    return 0;
 }

@@ -72,7 +72,7 @@ void process_geo() {
     // Define Boundary Layer
     gmsh::model::mesh::field::add("BoundaryLayer", 1);
     gmsh::model::mesh::field::setNumber(1, "hfar", 0.05);
-    gmsh::model::mesh::field::setNumber(1, "hwall_n", 0.05);
+    gmsh::model::mesh::field::setNumber(1, "hwall_n", 0.1);
     gmsh::model::mesh::field::setNumber(1, "thickness", 3);
     gmsh::model::mesh::field::setNumber(1, "ratio", 1.1);
     gmsh::model::mesh::field::setNumber(1, "AnisoMax", 10);
@@ -106,7 +106,8 @@ void generate_mesh(const std::vector<CtrlPoint> &ctrlPoints, int numSamples) {
 
     gmsh::initialize();
 
-    double lc = 1; // 1e-2; // Target mesh size
+    double outer_mesh_size = 2.0; // Mesh size factor
+    double inner_mesh_size = 0.5;
 
     double bboxHeightLimit = 50.0;
     double bboxWidthLimit = 80.0;
@@ -120,27 +121,27 @@ void generate_mesh(const std::vector<CtrlPoint> &ctrlPoints, int numSamples) {
     double ctrlThreeYUpper = ctrlThree.y + wallThickness * cos(theta);
 
     // Define fixed point coordinates
-    gmsh::model::geo::addPoint(bboxWidthLimit, bboxHeightLimit, 0, lc, 1);  // Upper right corner
-    gmsh::model::geo::addPoint(0, bboxHeightLimit, 0, lc, 2);               // Upper left corner
-    gmsh::model::geo::addPoint(0, 0, 0, lc, 3);                             // Lower left corner
-    gmsh::model::geo::addPoint(bboxWidthLimit, 0, 0, lc, 4);                // Lower right corner
-    gmsh::model::geo::addPoint(bboxWidthLimit, lowerOutletLimit, 0, lc, 5); // Lower outlet
-    gmsh::model::geo::addPoint(bboxWidthLimit, upperOutletLimit, 0, lc, 6); // Upper outlet
+    gmsh::model::geo::addPoint(bboxWidthLimit, bboxHeightLimit, 0, outer_mesh_size, 1);  // Upper right corner
+    gmsh::model::geo::addPoint(0, bboxHeightLimit, 0, outer_mesh_size, 2);               // Upper left corner
+    gmsh::model::geo::addPoint(0, 0, 0, outer_mesh_size, 3);                             // Lower left corner
+    gmsh::model::geo::addPoint(bboxWidthLimit, 0, 0, outer_mesh_size, 4);                // Lower right corner
+    gmsh::model::geo::addPoint(bboxWidthLimit, lowerOutletLimit, 0, outer_mesh_size, 5); // Lower outlet
+    gmsh::model::geo::addPoint(bboxWidthLimit, upperOutletLimit, 0, outer_mesh_size, 6); // Upper outlet
 
     // Bezier control points, start from left
-    gmsh::model::geo::addPoint(ctrlOne.x, ctrlOne.y, 0, lc, 7);     // Lower crtl 1
-    gmsh::model::geo::addPoint(ctrlTwo.x, ctrlTwo.y, 0, lc, 8);     // Lower crtl 2
-    gmsh::model::geo::addPoint(ctrlThree.x, ctrlThree.y, 0, lc, 9); // Lower crtl 3
-    gmsh::model::geo::addPoint(ctrlFour.x, ctrlFour.y, 0, lc, 10);  // Lower crtl 4
-    gmsh::model::geo::addPoint(ctrlFive.x, ctrlFive.y, 0, lc, 11);  // Lower crtl 5
+    gmsh::model::geo::addPoint(ctrlOne.x, ctrlOne.y, 0, inner_mesh_size, 7);     // Lower crtl 1
+    gmsh::model::geo::addPoint(ctrlTwo.x, ctrlTwo.y, 0, inner_mesh_size, 8);     // Lower crtl 2
+    gmsh::model::geo::addPoint(ctrlThree.x, ctrlThree.y, 0, inner_mesh_size, 9); // Lower crtl 3
+    gmsh::model::geo::addPoint(ctrlFour.x, ctrlFour.y, 0, inner_mesh_size, 10);  // Lower crtl 4
+    gmsh::model::geo::addPoint(ctrlFive.x, ctrlFive.y, 0, inner_mesh_size, 11);  // Lower crtl 5
 
-    gmsh::model::geo::addPoint(ctrlOne.x, ctrlOne.y + wallThickness, 0, lc, 12);   // Upper crtl 1
-    gmsh::model::geo::addPoint(ctrlTwo.x, ctrlTwo.y + wallThickness, 0, lc, 13);   // Upper crtl 2
-    gmsh::model::geo::addPoint(ctrlThreeXUpper, ctrlThreeYUpper, 0, lc, 14);       // Upper crtl 3
-    gmsh::model::geo::addPoint(ctrlFour.x, ctrlFour.y + wallThickness, 0, lc, 15); // Upper crtl 4
-    gmsh::model::geo::addPoint(ctrlFive.x, ctrlFive.y + wallThickness, 0, lc, 16); // Upper crtl 5
+    gmsh::model::geo::addPoint(ctrlOne.x, ctrlOne.y + wallThickness, 0, inner_mesh_size, 12);   // Upper crtl 1
+    gmsh::model::geo::addPoint(ctrlTwo.x, ctrlTwo.y + wallThickness, 0, inner_mesh_size, 13);   // Upper crtl 2
+    gmsh::model::geo::addPoint(ctrlThreeXUpper, ctrlThreeYUpper, 0, inner_mesh_size, 14);       // Upper crtl 3
+    gmsh::model::geo::addPoint(ctrlFour.x, ctrlFour.y + wallThickness, 0, inner_mesh_size, 15); // Upper crtl 4
+    gmsh::model::geo::addPoint(ctrlFive.x, ctrlFive.y + wallThickness, 0, inner_mesh_size, 16); // Upper crtl 5
 
-    gmsh::model::geo::addPoint(ctrlOne.x, ctrlOne.y + wallThickness / 2.0, 0, lc,
+    gmsh::model::geo::addPoint(ctrlOne.x, ctrlOne.y + wallThickness / 2.0, 0, 1.0,
                                17); // tip circular center
 
     process_geo();
@@ -165,7 +166,8 @@ void generate_mesh(const std::vector<CtrlPoint> &ctrlPoints, int numSamples) {
  */
 void generate_mesh(double radius, int numSamples) {
 
-    double lc = 1; // 1e-2; // Target mesh size
+    double outer_mesh_size = 2.0; // Mesh size factor
+    double inner_mesh_size = 0.5;
 
     double bboxHeightLimit = 50.0;
     double bboxWidthLimit = 80.0;
@@ -194,27 +196,27 @@ void generate_mesh(double radius, int numSamples) {
         double ctrlThreeYUpper = ctrlThreeY + wallThickness * cos(theta);
 
         // Define fixed point coordinates
-        gmsh::model::geo::addPoint(bboxWidthLimit, bboxHeightLimit, 0, lc, 1); // Upper right corner
-        gmsh::model::geo::addPoint(0, bboxHeightLimit, 0, lc, 2);              // Upper left corner
-        gmsh::model::geo::addPoint(0, 0, 0, lc, 3);                            // Lower left corner
-        gmsh::model::geo::addPoint(bboxWidthLimit, 0, 0, lc, 4);               // Lower right corner
-        gmsh::model::geo::addPoint(bboxWidthLimit, lowerOutletLimit, 0, lc, 5); // Lower outlet
-        gmsh::model::geo::addPoint(bboxWidthLimit, upperOutletLimit, 0, lc, 6); // Upper outlet
+        gmsh::model::geo::addPoint(bboxWidthLimit, bboxHeightLimit, 0, outer_mesh_size, 1); // Upper right corner
+        gmsh::model::geo::addPoint(0, bboxHeightLimit, 0, outer_mesh_size, 2);              // Upper left corner
+        gmsh::model::geo::addPoint(0, 0, 0, outer_mesh_size, 3);                            // Lower left corner
+        gmsh::model::geo::addPoint(bboxWidthLimit, 0, 0, outer_mesh_size, 4);               // Lower right corner
+        gmsh::model::geo::addPoint(bboxWidthLimit, lowerOutletLimit, 0, outer_mesh_size, 5); // Lower outlet
+        gmsh::model::geo::addPoint(bboxWidthLimit, upperOutletLimit, 0, outer_mesh_size, 6); // Upper outlet
 
         // Bezier control points, start from left
-        gmsh::model::geo::addPoint(ctrlOneX, radius, 0, lc, 7);             // Lower crtl 1
-        gmsh::model::geo::addPoint(ctrlTwoX, radius, 0, lc, 8);             // Lower crtl 2
-        gmsh::model::geo::addPoint(ctrlThreeX, ctrlThreeY, 0, lc, 9);       // Lower crtl 3
-        gmsh::model::geo::addPoint(ctrlFourX, lowerOutletLimit, 0, lc, 10); // Lower crtl 4
-        gmsh::model::geo::addPoint(ctrlFiveX, lowerOutletLimit, 0, lc, 11); // Lower crtl 5
+        gmsh::model::geo::addPoint(ctrlOneX, radius, 0, inner_mesh_size, 7);             // Lower crtl 1
+        gmsh::model::geo::addPoint(ctrlTwoX, radius, 0, inner_mesh_size, 8);             // Lower crtl 2
+        gmsh::model::geo::addPoint(ctrlThreeX, ctrlThreeY, 0, inner_mesh_size, 9);       // Lower crtl 3
+        gmsh::model::geo::addPoint(ctrlFourX, lowerOutletLimit, 0, inner_mesh_size, 10); // Lower crtl 4
+        gmsh::model::geo::addPoint(ctrlFiveX, lowerOutletLimit, 0, inner_mesh_size, 11); // Lower crtl 5
 
-        gmsh::model::geo::addPoint(ctrlOneX, radius + wallThickness, 0, lc, 12); // Upper crtl 1
-        gmsh::model::geo::addPoint(ctrlTwoX, radius + wallThickness, 0, lc, 13); // Upper crtl 2
-        gmsh::model::geo::addPoint(ctrlThreeXUpper, ctrlThreeYUpper, 0, lc, 14); // Upper crtl 3
-        gmsh::model::geo::addPoint(ctrlFourX, upperOutletLimit, 0, lc, 15);      // Upper crtl 4
-        gmsh::model::geo::addPoint(ctrlFiveX, upperOutletLimit, 0, lc, 16);      // Upper crtl 5
+        gmsh::model::geo::addPoint(ctrlOneX, radius + wallThickness, 0, inner_mesh_size, 12); // Upper crtl 1
+        gmsh::model::geo::addPoint(ctrlTwoX, radius + wallThickness, 0, inner_mesh_size, 13); // Upper crtl 2
+        gmsh::model::geo::addPoint(ctrlThreeXUpper, ctrlThreeYUpper, 0, inner_mesh_size, 14); // Upper crtl 3
+        gmsh::model::geo::addPoint(ctrlFourX, upperOutletLimit, 0, inner_mesh_size, 15);      // Upper crtl 4
+        gmsh::model::geo::addPoint(ctrlFiveX, upperOutletLimit, 0, inner_mesh_size, 16);      // Upper crtl 5
 
-        gmsh::model::geo::addPoint(ctrlOneX, radius + wallThickness / 2.0, 0, lc,
+        gmsh::model::geo::addPoint(ctrlOneX, radius + wallThickness / 2.0, 0, 1.0,
                                    17); // tip circular center
 
         process_geo(); // Form shape and generate 2D mesh

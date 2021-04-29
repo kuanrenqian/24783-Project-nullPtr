@@ -25,11 +25,15 @@ void generate_simulation_files(string InFile, int numSimu);
 
 void check_output_folder();
 
-void run_simulation_files(int numSimu);
+int run_simulation_files(int numSimu);
 
 void parula_colormap(float input, float max_input, float &R, float &G, float &B);
 
-float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <float> &col2d, int Xoffset, int Yoffset);
+float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <float> &col2d, int Xoffset, int Yoffset, float maxP);
+
+void gen_cbar(vector <float> &vtx2d, vector <float> &col2d,  int Xoffset, int Yoffset);
+
+void label_cbar(int Xoffset, int Yoffset, float maxP);
 
 void Draw_Simulation_Result(int numSimu, int x_off, int y_off);
 
