@@ -45,7 +45,8 @@ int main(){
     cout << "6. Program will automatically call fluent to run all simulations" << endl;
     cout << "7. GUI visualization of all simulation  results" << endl;
     cout << endl;
-    cout << "Input batch size (1~20, int): " << endl;
+    cout << "Batch size can be arbitrary int values, but only first 12 will be displayed" << endl;
+    cout << "Input batch size (int): " << endl;
     cin >> batch;
     cout << "test1 " << endl;
 
@@ -61,10 +62,8 @@ int main(){
     string pathToFile; // single meshFile name (.bdf)
     AllPathToFile.clear();
     control_pts.clear();
-    cout << "test1 " << endl;
 
     check_output_folder(); // this clears output folder
-    cout << "test1 " << endl;
 
     int redo = 0;
     // generate and display all mesh
@@ -72,7 +71,6 @@ int main(){
         
         // meshclickdraw - this component handles its own while loop (at the moment)
         control_pts = runClickDraw();
-        cout << "test2 " << endl;
 
         // genenerate mesh
         generate_mesh_exe_ctrlPoints(control_pts[0],control_pts[1],control_pts[2],control_pts[3],control_pts[4],control_pts[5],control_pts[6],control_pts[7],control_pts[8],control_pts[9], i);

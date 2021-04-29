@@ -165,7 +165,7 @@ void parula_colormap(float input, float max_input, float &R, float &G, float &B)
 
 }
 
-float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <float> &col2d, int Xoffset, int Yoffset, float maxP){
+float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <float> &col2d, int Xoffset, int Yoffset, float &maxP){
     // this function is float only for ctest purpose
     vector <float> temp_rgb;
     vtx2d.clear();
@@ -179,26 +179,28 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
     else{
         myfile.open("./output/test_result_" + to_string(numSimu) + ".txt", std::ios_base::in);
     }
-    if (!myfile)  {                     // if it does not work
+    if (!myfile)  { // if it does not work
         cerr << "Can't open Data! ./output/test_result_" + to_string(numSimu)+ "\n";
     }
+
     // read header (first line)
     string nodeID, xx, yy, pp, vv;
     myfile >> nodeID >> xx >> yy >> pp >> vv;
 
     float x,y,p,v;
-    float xmin = 0; float xmax = 80;
-    float ymin = 0; float ymax = 50;
-
+    float xmin = 0;
+    float xmax = 80;
+    float ymin = 0;
+    float ymax = 50;
     // read data while end of file is not reached
     while(myfile.eof()!=true){
         myfile >> nodeID >> xx >> yy >> pp >> vv;
-        x = stof(xx)*10;
+        x = stof(xx)*10; // some wierd issue going on, and somehow this is stable
         y = stof(yy)*10;
         p = stof(pp);
         v = stof(vv);
         
-        // scale to window
+        // get xmax ymax xmin ymin
         if (x > xmax) {
             xmax = x;
         }
@@ -220,7 +222,6 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
         vtx2d[i] = (vtx2d[i]-xmin)/xmax*300+Xoffset; 
         vtx2d[i+1] = 800-(vtx2d[i+1]-ymin)/ymax*187.5+Yoffset;
     }
-    
     maxP = *max_element(temp_rgb.begin(), temp_rgb.end());
 
     float r,g,b,val;
@@ -234,14 +235,11 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
         }
         col2d.push_back(r);  col2d.push_back(g); col2d.push_back(b); col2d.push_back(1);
     }
-
     temp_rgb.clear();
-    
     return xmax;
 }
 
 void gen_colorBar(vector <float> &vtx2d, vector <float> &col2d,  int Xoffset, int Yoffset){
-    
     float r,g,b;
     for(float i=0; i<300; ++i){
         parula_colormap(i,300,r,g,b);
@@ -252,37 +250,15 @@ void gen_colorBar(vector <float> &vtx2d, vector <float> &col2d,  int Xoffset, in
     }
 }
 
-void gen_cbar(vector <float> &vtx2d_grid, vector <float> &col2d_grid,  int Xoffset, int Yoffset){
-    
-    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-200+Yoffset);
-    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-0+Yoffset);
-    vtx2d_grid.push_back(295+Xoffset);  vtx2d_grid.push_back(800-0+Yoffset);
-    vtx2d_grid.push_back(295+Xoffset);  vtx2d_grid.push_back(800-200+Yoffset);
-    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-200+Yoffset);
-    vtx2d_grid.push_back(0+Xoffset);    vtx2d_grid.push_back(800-180+Yoffset);
-    vtx2d_grid.push_back(295+Xoffset);  vtx2d_grid.push_back(800-180+Yoffset);
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-    col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(0); col2d_grid.push_back(1); 
-
-}
-
 void label_cbar(int Xoffset, int Yoffset, float maxP){
-    const char *half_val = to_string(maxP/2).c_str();
-    const char *max_val = to_string(maxP).c_str();
-    printf(half_val);
-    cout << max_val << endl;
-    glColor3ub(0, 0, 0);
-    glRasterPos2d(5+Xoffset,800-170+Yoffset);
+    int intP = (int)maxP;
+    glColor3ub(255, 255, 255);
+    glRasterPos2d(8+Xoffset,800-160+Yoffset);
     YsGlDrawFontBitmap7x10("0");    
-    glRasterPos2d(120+Xoffset,800-170+Yoffset);
-    YsGlDrawFontBitmap7x10(half_val);
-    glRasterPos2d(280+Xoffset,800-170+Yoffset);
-    YsGlDrawFontBitmap7x10(max_val);
+    glRasterPos2d(140+Xoffset,800-160+Yoffset);
+    YsGlDrawFontBitmap7x10(to_string(intP/2).c_str());
+    glRasterPos2d(280+Xoffset,800-160+Yoffset);
+    YsGlDrawFontBitmap7x10(to_string(intP).c_str());
 }
 
 void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
@@ -290,40 +266,27 @@ void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
     // draws GL_POINTS
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    
-    std::vector <float> vtx2d_grid;
-	std::vector <float> col2d_grid;
+  
     float maxP;
 
     read_and_plot_testResultTXT(numSimu, vtx2d, col2d, x_off, y_off, maxP);
     gen_colorBar(vtx2d,col2d,x_off,y_off);
-    gen_cbar(vtx2d_grid,col2d_grid,x_off,y_off);
     
 	glShadeModel(GL_SMOOTH);
-
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
     glEnable(GL_POINT_SMOOTH);
-    glPointSize(10); // large points -> hide empty area
+    glPointSize(10); // large points -> fill empty area
 	glColorPointer(4,GL_FLOAT,0,col2d.data());
 	glVertexPointer(2,GL_FLOAT,0,vtx2d.data());
 	glDrawArrays(GL_POINTS,0,vtx2d.size()/2);
     
-    glLineWidth(5);
-    glColorPointer(4,GL_FLOAT,0,col2d_grid.data());
-    glVertexPointer(2,GL_FLOAT,0,vtx2d_grid.data());
-    glDrawArrays(GL_LINE_STRIP,0,vtx2d_grid.size()/2);
-    
     label_cbar(x_off,y_off,maxP);
 
-    glRasterPos2d(230,50);
     glColor3ub(0, 0, 0);
-    YsGlDrawFontBitmap16x20("All simulations completed.");
     glRasterPos2d(230,80);
-    YsGlDrawFontBitmap16x20("Results shown in the same order as mesh.");
+    YsGlDrawFontBitmap16x20("Simulation Results (Pressure Pa)");
     glRasterPos2d(230,110);
-    YsGlDrawFontBitmap16x20("All results saved in output folder.");
-    glRasterPos2d(230,140);
     YsGlDrawFontBitmap16x20("SPACE to end program.");
 
 	glDisableClientState(GL_VERTEX_ARRAY);
@@ -336,6 +299,7 @@ void Draw_All_Simulation_Results(int batch){
     int x_off, y_off;
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // draw simulation results
     for(int i=0; i<batch; ++i){
         row = i/3;
         column = i%3;
@@ -343,6 +307,7 @@ void Draw_All_Simulation_Results(int batch){
         x_off = column*300;
         Draw_Simulation_Result(i, x_off, y_off);
     }
+
     // <<< draw here
     FsSwapBuffers();
     FsSleep(25);
@@ -380,19 +345,22 @@ int compareFiles(FILE *fp1, FILE *fp2)
 int GUI_test1(){
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, 0);
+    float temp = 0;
+    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, temp);
     return vtx2d.size();
 }
 
 vector <float> GUI_test2(){
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, 0);
+    float temp = 0;
+    float xmax = read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, temp);
     return col2d;
 }
 
 float GUI_test3(){
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
-    return read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, 0);
+    float temp = 0;
+    return read_and_plot_testResultTXT(99, vtx2d, col2d, 0, 0, temp);
 }
