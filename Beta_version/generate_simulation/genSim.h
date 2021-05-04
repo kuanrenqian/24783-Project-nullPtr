@@ -15,9 +15,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ysglfontdata.h"
+// #include "drawmesh.h"
+// #include <unordered_set>
+
+// typedef std::unordered_set<float> vtxSet;
+
+// #include <conio.h>
+// #include <process.h>
+// #include <unistd.h>
 using namespace std;
 
-void generate_mesh_exe_radius(float radius); // old version
+void generate_mesh_exe_radius(float radius); // Radius input version
 
 void generate_mesh_exe_ctrlPoints(float c1x, float c1y, float c2x, float c2y, float c3x, float c3y, float c4x, float c4y, float c5x, float c5y, int numSimu);
 
@@ -25,7 +33,7 @@ void generate_simulation_files(string InFile, int numSimu);
 
 void check_output_folder();
 
-int run_simulation_files(int numSimu);
+int run_simulation_files(int numSimu, int nprocs);
 
 void parula_colormap(float input, float max_input, float &R, float &G, float &B);
 

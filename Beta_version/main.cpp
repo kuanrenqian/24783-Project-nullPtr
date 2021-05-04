@@ -2,6 +2,7 @@
 #include "meshclickdraw.h"
 #include "drawMesh.h"
 #include "genSim.h"
+#include <chrono>
 using namespace std;
 #include <future>
 
@@ -9,14 +10,7 @@ using namespace std;
 const int wid = 900;
 const int hei = 800;
 
-int main(){
-    int batch; // # of simulation to run
-    string fileName;
-
-    // termination state
-    bool termination = false;
-
-    // print info and takes input (to be integrated with click-draw)
+void commandline_instruction(int &batch, int &nprocs){
     cout << "#################################################################" << endl;
     cout << "#   24-783 Project - Automated Training Data Generation for     #" << endl;
     cout << "#   Geometrical Machine Learning                                #" << endl;
@@ -48,10 +42,23 @@ int main(){
     cout << "Batch size can be arbitrary int values, but only first 12 will be displayed" << endl;
     cout << "Input batch size (int): " << endl;
     cin >> batch;
-    cout << "test1 " << endl;
+    cout << "# of processors to use (int): " << endl;
+    cin >> nprocs;
 
     batch = (int)batch;
-    cout << "test1 " << endl;
+    nprocs = (int)nprocs;
+}
+
+int main(){
+    int batch; // # of simulation to run
+    int nprocs; // # of processors to use
+    string fileName;
+
+    // termination state
+    bool termination = false;
+
+    // print info and takes input (to be integrated with click-draw)
+    commandline_instruction(batch,nprocs);
 
     // open window
     FsOpenWindow(0,0,wid,hei,1);
@@ -70,7 +77,7 @@ int main(){
     for (int i=0; i<batch; ++i){
         
         // meshclickdraw - this component handles its own while loop (at the moment)
-        control_pts = runClickDraw();
+        control_pts = runClickDraw(control_pts);
 
         // genenerate mesh
         generate_mesh_exe_ctrlPoints(control_pts[0],control_pts[1],control_pts[2],control_pts[3],control_pts[4],control_pts[5],control_pts[6],control_pts[7],control_pts[8],control_pts[9], i);
@@ -110,13 +117,13 @@ int main(){
         generate_simulation_files(fileName,i);
     }
 
+    auto start = std::chrono::high_resolution_clock::now();
     // run simulation (requires licensed installation of Fluent software with correct environmental path)
     for (int i=0; i<batch; ++i){
-        // run_simulation_files(i);
         int highlightCounter = 0;
         int radius = 5;
         int margin = 20;
-        auto future = std::async(std::launch::async, run_simulation_files, i);
+        auto future = std::async(std::launch::async, run_simulation_files, i, nprocs);
         while (future.wait_for(100ms) != std::future_status::ready) {
             // Simulation still running
             FsPollDevice();
@@ -138,6 +145,9 @@ int main(){
         }
         std::cout << "Finished simulation # " << i << std::endl;
     }
+    auto stop = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = stop-start;
+    cout << "Simulation duration: " << diff.count() << "seconds for " << batch << " simulations." << endl;
 
     // read simulation results from testResults.txt into vtx and col
     // GUI visulization

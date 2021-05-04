@@ -1,10 +1,19 @@
 #include "drawMesh.h"
+#include "genSim.h"
 
 // const int wid = 900;
 const int hei = 800;
 vector<point> verts;
 vector<tvi> tvis;
 vector<qvi> qvis;
+
+std::vector <float> vtx_tri;
+std::vector <float> col_tri;
+
+std::vector <float> vtx_quad;
+std::vector <float> col_quad;
+
+std::vector<float> aspectRatio;
 
 // 2d point
 struct point {
@@ -23,12 +32,12 @@ struct qvi {
 
 // TODO: try gl_points instead of gl_lines to see at least the vertices are at the right place
 void DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3) {
-    glColor3ub(0, 0, 255);
+    glColor3ub(0, 0, 0);
     glBegin(GL_LINE_LOOP);
 
-    glVertex2f(x1, hei - y1);
-    glVertex2f(x2, hei - y2);
-    glVertex2f(x3, hei - y3);
+    glVertex2f(x1, y1);
+    glVertex2f(x2, y2);
+    glVertex2f(x3, y3);
 
     glEnd();
 }
@@ -56,18 +65,19 @@ void DrawCircle(int cx, int cy, int rad, int fill) {
 }
 
 void DrawQuad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
-    glColor3ub(0, 128, 255);
+    glLineWidth(0.005);
+    glColor3ub(0, 0, 0);
     glBegin(GL_LINE_LOOP);
 
-    glVertex2f(x1, hei - y1);
-    glVertex2f(x2, hei - y2);
-    glVertex2f(x3, hei - y3);
-    glVertex2f(x4, hei - y4);
+    glVertex2f(x1, y1);
+    glVertex2f(x2, y2);
+    glVertex2f(x3, y3);
+    glVertex2f(x4, y4);
 
     glEnd();
 }
 
-int read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &ymax){
+int read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &ymax) {
     verts.clear();
     tvis.clear();
     qvis.clear();
@@ -106,19 +116,6 @@ int read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &y
                 p.x = x;
                 p.y = y;
                 verts.push_back(p);
-                // // scale to window
-                // if (x > xmax) {
-                //     xmax = x;
-                // }
-                // if (y > ymax) {
-                //     ymax = y;
-                // }
-                // if (x < xmin) {
-                //     xmin = x;
-                // }
-                // if (y < ymin) {
-                //     ymin = y;
-                // }
             }
             xmin = 0;
             xmax = 80;
@@ -179,7 +176,7 @@ int read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &y
     return 0;
 }
 
-int Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
+int Draw_mesh(string pathToFile, float Xoffset, float Yoffset) {
     // vars
     float xmax, ymax, xmin, ymin;
 
@@ -192,8 +189,8 @@ int Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
     }
     // hard coding dimension - some potential issue with reading max from .bdf
 
-    // draw
     // draw here >>>
+    float R,G,B;
     for (int i = 0; i < tvis.size(); i++) {
         // scale to window
         float x1 = verts[tvis[i].a - 1].x;
@@ -206,8 +203,25 @@ int Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
         x1 = (x1-xmin)/xmax*300+Xoffset;   y1 = (y1-ymin)/ymax*187.5+Yoffset;
         x2 = (x2-xmin)/xmax*300+Xoffset;   y2 = (y2-ymin)/ymax*187.5+Yoffset;
         x3 = (x3-xmin)/xmax*300+Xoffset;   y3 = (y3-ymin)/ymax*187.5+Yoffset;
-        DrawTriangle(x1, y1, x2, y2, x3, y3); 
+
+        // calculating and drawing skewness
+        vtx_tri.push_back(x1); vtx_tri.push_back(hei-y1); vtx_tri.push_back(0);
+        vtx_tri.push_back(x2); vtx_tri.push_back(hei-y2); vtx_tri.push_back(0);
+        vtx_tri.push_back(x3); vtx_tri.push_back(hei-y3); vtx_tri.push_back(0);
+
+        float skewness = calc_Skewness(x1, y1, x2, y2, x3, y3);
+        if(skewness > 0.5){
+            R=1;    G=0;    B=0;
+        }
+        else{
+            parula_colormap(skewness,1,R,G,B);
+        }         
+        col_tri.push_back(R); col_tri.push_back(G); col_tri.push_back(B); col_tri.push_back(1);
+        col_tri.push_back(R); col_tri.push_back(G); col_tri.push_back(B); col_tri.push_back(1);
+        col_tri.push_back(R); col_tri.push_back(G); col_tri.push_back(B); col_tri.push_back(1);
+
     }
+
     for (int i = 0; i < qvis.size(); i++) {
         // scale to window
         float x1 = verts[qvis[i].a - 1].x;
@@ -222,17 +236,65 @@ int Draw_mesh(string pathToFile, float Xoffset, float Yoffset){
         x2 = (x2-xmin)/xmax*300+Xoffset;   y2 = (y2-ymin)/ymax*187.5+Yoffset;
         x3 = (x3-xmin)/xmax*300+Xoffset;   y3 = (y3-ymin)/ymax*187.5+Yoffset;        
         x4 = (x4-xmin)/xmax*300+Xoffset;   y4 = (y4-ymin)/ymax*187.5+Yoffset;
+        // DrawQuad(x1, y1, x2, y2, x3, y3, x4, y4);
+        vtx_quad.push_back(x1); vtx_quad.push_back(hei-y1); vtx_quad.push_back(0);
+        vtx_quad.push_back(x2); vtx_quad.push_back(hei-y2); vtx_quad.push_back(0);
+        vtx_quad.push_back(x3); vtx_quad.push_back(hei-y3); vtx_quad.push_back(0);
+        vtx_quad.push_back(x4); vtx_quad.push_back(hei-y4); vtx_quad.push_back(0);
+
+        aspectRatio.push_back(calc_aspectRatio(x1, y1, x2, y2, x3, y3, x4, y4));
+    }
+
+    float maxAR = *max_element(aspectRatio.begin(), aspectRatio.end());
+    for (int i = 0; i < qvis.size(); i++) {
+        parula_colormap(aspectRatio[i],maxAR,R,G,B);
+        col_quad.push_back(R); col_quad.push_back(G); col_quad.push_back(B); col_quad.push_back(1);
+        col_quad.push_back(R); col_quad.push_back(G); col_quad.push_back(B); col_quad.push_back(1);
+        col_quad.push_back(R); col_quad.push_back(G); col_quad.push_back(B); col_quad.push_back(1);
+        col_quad.push_back(R); col_quad.push_back(G); col_quad.push_back(B); col_quad.push_back(1);
+    }
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glColorPointer(4, GL_FLOAT, 0, col_tri.data());
+    glVertexPointer(3, GL_FLOAT, 0, vtx_tri.data());
+    glDrawArrays(GL_TRIANGLES, 0, vtx_tri.size()/3);
+
+    glColorPointer(4, GL_FLOAT, 0, col_quad.data());
+    glVertexPointer(3, GL_FLOAT, 0, vtx_quad.data());
+    glDrawArrays(GL_QUADS, 0, vtx_quad.size()/4);
+
+    for (int i = 0; i < vtx_tri.size();i+=9) {
+        float x1 = vtx_tri[i];      float y1 = vtx_tri[i+1];    // skipping z
+        float x2 = vtx_tri[i+3];    float y2 = vtx_tri[i+4];    // skipping z
+        float x3 = vtx_tri[i+6];    float y3 = vtx_tri[i+7];    // skipping z
+        DrawTriangle(x1, y1, x2, y2, x3, y3); 
+    }
+
+    for (int i = 0; i < vtx_quad.size();i+=12) {
+        float x1 = vtx_quad[i];      float y1 = vtx_quad[i+1];  // skipping z
+        float x2 = vtx_quad[i+3];    float y2 = vtx_quad[i+4];  // skipping z
+        float x3 = vtx_quad[i+6];    float y3 = vtx_quad[i+7];  // skipping z
+        float x4 = vtx_quad[i+9];    float y4 = vtx_quad[i+10]; // skipping z
         DrawQuad(x1, y1, x2, y2, x3, y3, x4, y4);
     }
-    glRasterPos2d(250,50);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+
     glColor3ub(0, 0, 0);
+    glRasterPos2d(250,50);
     YsGlDrawFontBitmap16x20("Displaying mesh");
+    glColor3ub(0, 0, 255);
     glRasterPos2d(250,80);
-    YsGlDrawFontBitmap16x20("SPACE to continue");
+    YsGlDrawFontBitmap16x20("SPACE");
+    glColor3ub(0, 0, 0);
+    glRasterPos2d(320,80);
+    YsGlDrawFontBitmap16x20(" to continue");
     return 0;
 }
 
-int Draw_All_mesh(vector<string> AllPathToFile){
+int Draw_All_mesh(vector<string> AllPathToFile) {
     int numFiles = AllPathToFile.size();
     int row, column;
     int x_off, y_off;
@@ -247,8 +309,73 @@ int Draw_All_mesh(vector<string> AllPathToFile){
             return 1;
         }
     }
-    // <<< draw here
+    legend_skewness_aspectRatio();
+    
     FsSwapBuffers();
     FsSleep(25);
+
     return 0;
+}
+
+float lengthSquare(pair<float,float> X, pair<float,float> Y) {
+    float xDiff = X.first - Y.first;
+    float yDiff = X.second - Y.second;
+    return xDiff*xDiff + yDiff*yDiff;
+}
+
+void getAngle(pair<float,float> A, pair<float,float> B, pair<float,float> C, vector<float> &angles) {
+    // Square of lengths be a2, b2, c2
+    float a2 = lengthSquare(B,C);
+    float b2 = lengthSquare(A,C);
+    float c2 = lengthSquare(A,B);
+    // length of sides be a, b, c
+    float a = sqrt(a2);
+    float b = sqrt(b2);
+    float c = sqrt(c2);
+
+    // From Cosine law
+    float alpha = acos((b2 + c2 - a2)/(2*b*c));
+    float betta = acos((a2 + c2 - b2)/(2*a*c));
+    float gamma = acos((a2 + b2 - c2)/(2*a*b));
+
+    // Converting to degree
+    angles[0] = alpha * 180 / PI;
+    angles[1] = betta * 180 / PI;
+    angles[2] = gamma * 180 / PI;
+
+} 
+
+float calc_Skewness(float x1, float y1, float x2, float y2, float x3, float y3) {
+
+    pair<float,float> a = make_pair(x1,y1);
+    pair<float,float> b = make_pair(x2,y2);
+    pair<float,float> c = make_pair(x3,y3);
+    vector<float> angles (3);
+    getAngle(a,b,c,angles);
+    sort(angles.begin(), angles.end());
+
+    return max((angles[2]-angles[1])/(180-angles[1]),(angles[1]-angles[0])/angles[1]);
+}
+
+float calc_aspectRatio(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+
+    pair<float,float> a = make_pair(x1,y1);
+    pair<float,float> b = make_pair(x2,y2);
+    pair<float,float> c = make_pair(x3,y3);
+    pair<float,float> d = make_pair(x4,y4);
+    vector<float> edgeLength (4);
+    // length of 4 sides
+    edgeLength[0] = sqrt(lengthSquare(a,b));
+    edgeLength[1] = sqrt(lengthSquare(b,c));
+    edgeLength[2] = sqrt(lengthSquare(c,d));
+    edgeLength[3] = sqrt(lengthSquare(d,a));
+    sort(edgeLength.begin(), edgeLength.end());
+
+    return edgeLength[2]/edgeLength[1];
+}
+
+void legend_skewness_aspectRatio(){
+    glColor3ub(0, 0, 0);
+    glRasterPos2d(250,110);
+    YsGlDrawFontBitmap10x14("Triangle - Skewness, Quads - Aspect Ratio");
 }

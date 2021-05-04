@@ -1,12 +1,10 @@
 #include "genSim.h"
 
 void generate_mesh_exe_radius(float radius){
-    //This is a version of generate_mesh function, but using genMesh.exe instead of 
-    //directly using gmsh. This solves the issue with commandline problem
     printf ("Checking if system is available...");
     if (system(NULL)) puts ("Ok");
     else exit (EXIT_FAILURE);
-    printf ("Executing genMesh in batch mode...\n");
+    printf ("Executing genMesh...\n");
     string command = ".\\generate_mesh\\Release\\genMesh.exe " + to_string(radius);
     const char *command_char = command.c_str();
     system (command_char);
@@ -14,12 +12,10 @@ void generate_mesh_exe_radius(float radius){
 }
 
 void generate_mesh_exe_ctrlPoints(float c1x, float c1y, float c2x, float c2y, float c3x, float c3y, float c4x, float c4y, float c5x, float c5y, int numSimu){
-    //This is a version of generate_mesh function, but using genMesh.exe instead of 
-    //directly using gmsh. This solves the issue with commandline problem
     printf ("Checking if system is available...");
     if (system(NULL)) puts ("Ok");
     else exit (EXIT_FAILURE);
-    printf ("Executing genMesh in batch mode...\n");
+    printf ("Executing genMesh...\n");
     string command = ".\\generate_mesh\\Release\\genMesh.exe " + to_string(c1x) + " " + to_string(c1y) + " " + to_string(c2x) + " " + to_string(c2y) + " "
      + to_string(c3x) + " " + to_string(c3y) + " " + to_string(c4x) + " " + to_string(c4y) + " " + to_string(c5x) + " " + to_string(c5y) + " " + to_string(numSimu);
     cout << command << endl;
@@ -78,15 +74,16 @@ void check_output_folder(){
     remove_all(pathToDelete);
 }
 
-int run_simulation_files(int numSimu){
+int run_simulation_files(int numSimu, int nprocs){
     // This function calls fluent to run a double precision, no gui simulation using generated journal file
     printf ("Checking if system is available...");
     if (system(NULL)) puts ("Ok");
     else exit (EXIT_FAILURE);
-    printf ("Executing Fluent in batch mode...\n");
-    string command = "fluent 2ddp -g -i ./output/simulation_input_journal" + to_string(numSimu) + ".jou";
+    printf ("Executing Fluent...\n");
+    string command = "fluent 2ddp -g -t " + to_string(nprocs) + " -i ./output/simulation_input_journal" + to_string(numSimu) + ".jou";
     const char *command_char = command.c_str();
     system (command_char);
+
     return 0;
 }
 
@@ -236,6 +233,7 @@ float read_and_plot_testResultTXT(int numSimu, vector <float> &vtx2d, vector <fl
         col2d.push_back(r);  col2d.push_back(g); col2d.push_back(b); col2d.push_back(1);
     }
     temp_rgb.clear();
+    
     return xmax;
 }
 
@@ -263,7 +261,6 @@ void label_cbar(int Xoffset, int Yoffset, float maxP){
 
 void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
     // This function draws simulation results read by read_and_plot_testResultTXT()
-    // draws GL_POINTS
     std::vector <float> vtx2d;
 	std::vector <float> col2d;
   
@@ -286,8 +283,12 @@ void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
     glColor3ub(0, 0, 0);
     glRasterPos2d(230,80);
     YsGlDrawFontBitmap16x20("Simulation Results (Pressure Pa)");
+    glColor3ub(0, 0, 255);
     glRasterPos2d(230,110);
-    YsGlDrawFontBitmap16x20("SPACE to end program.");
+    YsGlDrawFontBitmap16x20("SPACE");
+    glColor3ub(0, 0, 0);
+    glRasterPos2d(300,110);
+    YsGlDrawFontBitmap16x20(" to end program.");
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_COLOR_ARRAY);
@@ -308,7 +309,6 @@ void Draw_All_Simulation_Results(int batch){
         Draw_Simulation_Result(i, x_off, y_off);
     }
 
-    // <<< draw here
     FsSwapBuffers();
     FsSleep(25);
 }

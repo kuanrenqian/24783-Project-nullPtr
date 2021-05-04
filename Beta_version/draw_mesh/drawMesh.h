@@ -11,6 +11,8 @@
 #define GL_SILENCE_DEPRECATION
 #include <fssimplewindow.h>
 #include "ysglfontdata.h"
+#include <utility> // for pair
+#define PI 3.1415926535
 using namespace std;
 
 // 2d point
@@ -31,4 +33,15 @@ int read_mesh(string pathToFile, float &xmin, float &xmax, float &ymin, float &y
 int Draw_mesh(string pathToFile, float Xoffset, float Yoffset);
 
 int Draw_All_mesh(vector<string> AllPathToFile);
+
+float lengthSquare(pair<float,float> X, pair<float,float> Y);
+
+void getAngle(pair<float,float> A, pair<float,float> B, pair<float,float> C, vector<float> &angles);
+
+float calc_Skewness(float x1, float y1, float x2, float y2, float x3, float y3);
+
+float calc_aspectRatio(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4);
+
+void legend_skewness_aspectRatio();
+
 #endif

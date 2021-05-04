@@ -19,7 +19,7 @@ void Draw_coordinates();
 
 void Draw(std::vector<float> &col, std::vector<float> &vtx, std::vector<float> &col_layout, std::vector<float> &vtx_layout);
 
-std::vector<float> runClickDraw();
+std::vector<float> runClickDraw(std::vector<float> &allctrl);
 
 void crtlPts_mapping(std::vector <float> &orderedControl);
 
