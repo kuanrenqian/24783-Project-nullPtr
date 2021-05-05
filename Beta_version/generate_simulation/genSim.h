@@ -15,14 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ysglfontdata.h"
-// #include "drawmesh.h"
-// #include <unordered_set>
 
-// typedef std::unordered_set<float> vtxSet;
-
-// #include <conio.h>
-// #include <process.h>
-// #include <unistd.h>
 using namespace std;
 
 void generate_mesh_exe_radius(float radius); // Radius input version

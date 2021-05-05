@@ -250,12 +250,12 @@ void gen_colorBar(vector <float> &vtx2d, vector <float> &col2d,  int Xoffset, in
 
 void label_cbar(int Xoffset, int Yoffset, float maxP){
     int intP = (int)maxP;
-    glColor3ub(255, 255, 255);
-    glRasterPos2d(8+Xoffset,800-160+Yoffset);
+    glColor3ub(0, 0, 0);
+    glRasterPos2d(8+Xoffset,800-187+Yoffset);
     YsGlDrawFontBitmap7x10("0");    
-    glRasterPos2d(140+Xoffset,800-160+Yoffset);
+    glRasterPos2d(140+Xoffset,800-187+Yoffset);
     YsGlDrawFontBitmap7x10(to_string(intP/2).c_str());
-    glRasterPos2d(280+Xoffset,800-160+Yoffset);
+    glRasterPos2d(280+Xoffset,800-187+Yoffset);
     YsGlDrawFontBitmap7x10(to_string(intP).c_str());
 }
 
@@ -272,8 +272,7 @@ void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
 	glShadeModel(GL_SMOOTH);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
-    glEnable(GL_POINT_SMOOTH);
-    glPointSize(10); // large points -> fill empty area
+    glPointSize(4); // large points -> fill empty area
 	glColorPointer(4,GL_FLOAT,0,col2d.data());
 	glVertexPointer(2,GL_FLOAT,0,vtx2d.data());
 	glDrawArrays(GL_POINTS,0,vtx2d.size()/2);
@@ -292,7 +291,6 @@ void Draw_Simulation_Result(int numSimu, int x_off, int y_off){
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_COLOR_ARRAY);
-    glDisable(GL_POINT_SMOOTH);
 }
 
 void Draw_All_Simulation_Results(int batch){
